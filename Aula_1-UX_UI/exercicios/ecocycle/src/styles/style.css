@@ -1,0 +1,62 @@
+/* Configuração Geral */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+/* EXERCÍCIO 3 - ID E HIERARQUIA */
+#cabecalho-principal {
+    background-color: #1b5e20; /* Verde escuro */
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.link-nav {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+/* EXERCÍCIO 4 - FEEDBACK NA NAV */
+.link-nav:hover {
+    color: #81c784;
+    text-decoration: underline;
+}
+
+.lista-noticias {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+}
+
+.card-noticia {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    transition: 0.3s; /* Para o feedback ser suave */
+}
+
+/* EXERCÍCIO 4 - FEEDBACK NO CARD */
+.card-noticia:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    cursor: pointer;
+    background-color: #f9f9f9;
+}
+
+/* EXERCÍCIO 3 - AJUSTE DE IMAGEM (UX) */
+.card-noticia img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* EXERCÍCIO 3 - HIERARQUIA UI */
+.card-noticia h2 {
+    color: #2e7d32; /* Título em destaque */
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.card-noticia p {
+    color: #666; /* Texto secundário */
+    font-size: 14px;
+}

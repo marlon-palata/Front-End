@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Cadastro - UX Ruim (Norman Door)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            text-align: left;
+            font-weight: bold;
+            color: #555;
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* UX RUIM: O botão principal parece um texto desabilitado */
+        .botao-registro {
+            background-color: #e0e0e0; /* Cor de algo "morto" ou desabilitado */
+            color: #999;
+            padding: 12px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: default; /* Não mostra a mãozinha de clique */
+            font-size: 16px;
+        }
+
+        /* UX RUIM: Um elemento que NÃO é o botão de envio, mas brilha e atrai o clique */
+        .falsa-acao {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+            cursor: pointer;
+        }
+
+        .aviso {
+            font-size: 11px;
+            color: #888;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulário de Cadastro</h1>
+        
+        <div class="falsa-acao" onclick="alert('Isso é apenas um banner decorativo. O botão real está embaixo.')">
+            CLIQUE PARA VALIDAR DADOS
+        </div>
+
+        <form action="#" method="POST">
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" placeholder="Não use acentos">
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" placeholder="Obrigatório">
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" placeholder="Mínimo 18 caracteres">
+
+            <button type="submit" class="botao-registro">Fazer o Cadastro</button>
+            
+            <p class="aviso">Dica: O botão cinza acima funciona, apesar de não parecer.</p>
+        </form>
+    </div>
+</body>
+</html>

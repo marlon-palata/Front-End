@@ -1,0 +1,67 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+#topo-loja {
+    background-color: #2c3e50;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.link-menu {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.link-menu:hover { color: #3498db; }
+
+.vitrine {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.card-produto {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card-produto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card-produto img {
+    max-width: 100%;  /* Garante que a imagem nunca seja maior que o card */
+    height: auto;     /* Mantém a proporção da imagem (não achata) */
+    display: block;   /* Remove pequenos espaços indesejados abaixo da imagem */
+    border-radius: 8px 8px 0 0; /* Opcional: arredonda as pontas superiores para combinar com o card */
+}
+/*
+.preco-destaque {
+    font-size: 26px;
+    color: #27ae60;
+    font-weight: bold;
+    margin: 20px 0;
+}
+*/
+.btn-comprar {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-comprar:hover {
+    background-color: #2ecc71; /* Muda a cor ao passar o mouse */
+    cursor: pointer;           /* Muda o ícone do mouse */
+}
