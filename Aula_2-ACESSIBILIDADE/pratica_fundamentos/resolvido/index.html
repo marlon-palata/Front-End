@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="src/styles/style.css">
+    <title>TechFood - Sabor & Saber Acessível</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">TechFood</div>
+        <button class="btn-topo" aria-label="Pesquisar no cardápio">
+            <span aria-hidden="true">🔍</span>
+        </button>
+        <button class="btn-topo" aria-label="Ver meu carrinho de compras">
+            <span aria-hidden="true">🛒</span>
+        </button>
+    </header>
+
+    <main>
+        <section class="banner-hero">
+            <h1>Sabor & Saber</h1>
+            <p>A melhor gastronomia tecnológica da região.</p>
+        </section>
+
+        <section class="menu-container">
+            <nav class="abas-lista" role="tablist" aria-label="Categorias de comida">
+                <input type="radio" name="categoria" id="massa" checked class="sr-only">
+                <label for="massa" tabindex="0" role="tab" aria-selected="true">Massas</label>
+
+                <input type="radio" name="categoria" id="bebida" class="sr-only">
+                <label for="bebida" tabindex="0" role="tab" aria-selected="false">Bebidas</label>
+            </nav>
+
+            <section class="aba-tela" id="tela-massas" role="tabpanel" aria-labelledby="massa">
+                <div class="grid-produtos">
+                    
+                    <article class="card">
+                        <img src="src/images/lasanha.jpg" alt="Fatia de lasanha gratinada com queijo derretido e molho de tomate saindo pelas laterais">
+                        <h3 id="titulo-prato1">Lasanha Tradicional</h3>
+                        <p id="desc-prato1">Massa artesanal ao molho bolonhesa com 4 queijos.</p>
+                        <span class="preco">R$ 45,90</span>
+                        
+                        <button class="btn-real" aria-describedby="desc-prato1">Pedir Lasanha</button>
+                    </article>
+
+                    <article class="card">
+                        <img src="src/images/ravioli.jpg" alt="Prato com seis raviolis cobertos por molho verde de pesto e nozes picadas">
+                        <h3 id="titulo-prato2">Ravioli de Espinafre</h3>
+                        <p id="desc-prato2">Recheado com ricota fresca e nozes picadas.</p>
+                        <span class="preco">R$ 39,00</span>
+                        <button class="btn-real" aria-describedby="desc-prato2">Pedir Ravioli</button>
+                    </article>
+
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <p>Acompanhe nossas redes oficiais:</p>
+        <a href="#" aria-label="Ir para o nosso Facebook">Facebook</a>
+        <a href="#" aria-label="Ir para o nosso Instagram">Instagram</a>
+    </footer>
+</body>
+</html>
