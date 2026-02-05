@@ -1,0 +1,52 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+
+#cabecalho-eco {
+    background-color: #1b5e20;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.link-nav {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* ACESSIBILIDADE: Feedback visual para teclado */
+.link-nav:focus, .btn-leitura:focus {
+    outline: 4px solid #f1c40f; /* Amarelo vivo para alto contraste */
+    outline-offset: 2px;
+}
+
+.card-noticia {
+    width: 320px;
+    border: 2px solid #2e7d32;
+    padding: 15px;
+    margin: 20px auto;
+}
+
+.card-noticia img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-noticia h2 { color: #1b5e20; margin: 10px 0; }
+
+.card-noticia p {
+    color: #333; /* Cinza escuro para melhor contraste */
+    line-height: 1.6; /* Melhor para disléxicos e leitura cognitiva */
+    margin-bottom: 15px;
+}
+
+.btn-leitura {
+    background-color: #1b5e20;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}

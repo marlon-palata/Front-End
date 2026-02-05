@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Site Confuso</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="topo">
+        <div class="titulo">Loja do Tech</div>
+        <div class="links">
+            <span onclick="location.href='#p'">Produtos</span>
+            <span onclick="location.href='#c'">Contato</span>
+        </div>
+    </div>
+
+    <div id="conteudo">
+        <div class="item">
+            <div class="subtitulo">Lançamento: Teclado Mecânico</div>
+            <div class="texto">Um teclado robusto para quem busca produtividade.</div>
+            <div class="botao" onclick="comprar()">Clique aqui</div>
+        </div>
+    </div>
+
+    <div class="rodape">
+        2026 Tech Shop
+    </div>
+</body>
+</html>
+
+<!--
+Por que o narrador se confunde?
+Falta de Marcos: O leitor de tela lerá apenas "Grupo", "Texto", "Texto". O usuário não sabe onde termina o menu e começa o conteúdo.
+
+Botão Falso: O "botão" feito com <div> não é acessível via teclado (tecla Tab) e o leitor não anunciará que aquilo é clicável.
+
+Links de Span: Como não são tags <a>, o narrador não avisa que são links. O usuário pode achar que é apenas um texto comum.
+-->

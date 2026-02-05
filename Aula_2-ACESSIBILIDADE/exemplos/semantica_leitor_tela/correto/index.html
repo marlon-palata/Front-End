@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Site Acessível</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Loja do Tech</h1>
+        <nav>
+            <ul>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h2>Lançamento: Teclado Mecânico</h2>
+            <p>Um teclado robusto para quem busca produtividade.</p>
+            <button aria-label="Comprar Teclado Mecânico">Comprar</button>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Tech Shop</p>
+    </footer>
+</body>
+</html>
+
+<!--
+Por que funciona?
+<nav>: O leitor anuncia: "Navegação".
+
+<main>: O usuário pode pular o cabeçalho e ir direto ao que interessa.
+
+aria-label: Se o botão tivesse apenas um ícone, o leitor diria exatamente o que ele faz.
+-->

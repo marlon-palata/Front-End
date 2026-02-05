@@ -1,0 +1,55 @@
+/* Visualmente igual, mas funcionalmente pobre */
+#topo {
+    background: #2c3e50;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titulo {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* Spans não têm comportamento de link por padrão */
+.links span {
+    margin-left: 20px;
+    cursor: pointer; 
+    font-weight: bold;
+}
+
+.links span:hover {
+    text-decoration: underline;
+}
+
+#conteudo {
+    padding: 2rem;
+}
+
+.subtitulo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Forçando uma DIV a parecer um botão */
+.botao {
+    display: inline-block;
+    background: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* O problema: se o usuário apertar 'Tab', essa div nunca será selecionada */
+.botao:hover {
+    background: #219150;
+}
+
+.rodape {
+    text-align: center;
+    padding: 1rem;
+    background: #ecf0f1;
+}
