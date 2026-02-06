@@ -31,7 +31,7 @@
 
 .menu-container { padding: 40px 5%; }
 
-label {
+.abas-lista {
     padding: 12px 30px;
     background-color: #eee;
     margin: 5px;
@@ -41,10 +41,12 @@ label {
     border-radius: 5px;
 }
 
-input:checked + label { background-color: #e67e22; color: white; }
+#massa:checked + label,
+#bebida:checked + label { background-color: #e67e22; color: white; }
 
 .aba-tela { display: none; }
 #massa:checked ~ #tela-massas { display: block; }
+#bebida:checked ~ #tela-bebidas { display: block; }
 
 /* GRID DE PRODUTOS */
 .grid-produtos {

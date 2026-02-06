@@ -23,13 +23,11 @@
         </section>
 
         <section class="menu-container">
-            <nav class="abas-lista" role="tablist" aria-label="Categorias de comida">
-                <input type="radio" name="categoria" id="massa" checked class="sr-only">
-                <label for="massa" tabindex="0" role="tab" aria-selected="true">Massas</label>
+            <input type="radio" name="categoria" id="massa" checked class="sr-only">
+            <label for="massa" class="abas-lista" tabindex="0" role="tab" aria-selected="true">Massas</label>
 
-                <input type="radio" name="categoria" id="bebida" class="sr-only">
-                <label for="bebida" tabindex="0" role="tab" aria-selected="false">Bebidas</label>
-            </nav>
+            <input type="radio" name="categoria" id="bebida" class="sr-only">
+            <label for="bebida" class="abas-lista" tabindex="0" role="tab" aria-selected="false">Bebidas</label>
 
             <section class="aba-tela" id="tela-massas" role="tabpanel" aria-labelledby="massa">
                 <div class="grid-produtos">
@@ -49,6 +47,29 @@
                         <p id="desc-prato2">Recheado com ricota fresca e nozes picadas.</p>
                         <span class="preco">R$ 39,00</span>
                         <button class="btn-real" aria-describedby="desc-prato2">Pedir Ravioli</button>
+                    </article>
+
+                </div>
+            </section>
+
+            <section class="aba-tela" id="tela-bebidas" role="tabpanel" aria-labelledby="bebida">
+                <div class="grid-produtos">
+                    
+                    <article class="card">
+                        <img src="src/images/suco.jpg" alt="Copo com suco natural de laranja fresco">
+                        <h3 id="titulo-prato3">Suco Natural</h3>
+                        <p id="desc-prato3">Suco natural de laranja espremido na hora.</p>
+                        <span class="preco">R$ 12,00</span>
+                        
+                        <button class="btn-real" aria-describedby="desc-prato3">Pedir Suco</button>
+                    </article>
+
+                    <article class="card">
+                        <img src="src/images/agua.jpg" alt="Copo com água gelada e limão">
+                        <h3 id="titulo-prato4">Água com Limão</h3>
+                        <p id="desc-prato4">Água gelada com limão fresco.</p>
+                        <span class="preco">R$ 5,00</span>
+                        <button class="btn-real" aria-describedby="desc-prato4">Pedir Água</button>
                     </article>
 
                 </div>
