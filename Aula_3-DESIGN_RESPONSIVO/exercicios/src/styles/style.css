@@ -1,4 +1,4 @@
-/* --- ESTILO GERAL (DESKTOP) --- */
+/* --- BASE --- */
 * {
   margin: 0;
   padding: 0;
@@ -13,30 +13,30 @@
   text-align: center;
 }
 
-#nav-principal {
+/* Escondendo os controles do Hamburguer no Desktop */
+#check-menu,
+#icone-btn {
+  display: none;
+}
+
+#nav-eco ul {
+  list-style: none;
   margin-top: 15px;
 }
-
-.link-nav {
+#nav-eco li {
+  display: inline-block;
+  margin: 0 10px;
+}
+#nav-eco a {
   color: white;
   text-decoration: none;
-  margin: 0 10px;
-  padding: 5px;
-  border-radius: 4px;
-  display: inline-block;
+  font-weight: bold;
 }
 
-/* ACESSIBILIDADE: Feedback visual para teclado */
-.link-nav:focus,
-.btn-leitura:focus {
-  outline: 4px solid #f1c40f;
-  outline-offset: 2px;
-}
-
-/* Exercício 2: Configuração do Grid para Desktop */
+/* GRID DESKTOP */
 .lista-noticias {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 Colunas no PC */
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   padding: 40px;
 }
@@ -45,23 +45,20 @@
   border: 2px solid #2e7d32;
   padding: 15px;
   border-radius: 8px;
-  text-align: left;
 }
-
 .card-noticia img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   border-radius: 4px;
 }
 
-/* Exercício 3: Estilo para Vídeo Responsivo */
+/* Video Responsivo */
 .video-container {
   position: relative;
-  padding-bottom: 56.25%; /* Mantém proporção 16:9 */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
 }
-
 .video-container iframe {
   position: absolute;
   top: 0;
@@ -70,54 +67,55 @@
   height: 100%;
 }
 
-.card-noticia h2 {
-  color: #1b5e20;
-  margin: 10px 0;
-  font-size: 1.2rem;
-}
-
-.card-noticia p {
-  color: #333;
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-
 .btn-leitura {
   background-color: #1b5e20;
   color: white;
-  padding: 10px;
   border: none;
-  cursor: pointer;
+  padding: 10px;
   width: 100%;
+  cursor: pointer;
   font-weight: bold;
+  margin-top: 10px;
 }
 
-/* --- SEÇÃO DE MEDIA QUERIES (ORDEM SEQUENCIAL) --- */
+/* --- RESPONSIVIDADE --- */
 
-/* SLIDE 8: OPERADOR AND - Ajuste para Tablets */
+/* TABLET */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .lista-noticias {
-    grid-template-columns: 1fr 1fr; /* Muda para 2 colunas */
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-/* SLIDE 9: OPERADOR VÍRGULA - Mobile ou Portrait */
+/* MOBILE */
 @media screen and (max-width: 600px), (orientation: portrait) {
+  #icone-btn {
+    display: block;
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  #nav-eco ul {
+    display: none;
+  }
+
+  /* Lógica do Menu Hamburguer */
+  #check-menu:checked ~ #nav-eco ul {
+    display: block;
+  }
+
+  #nav-eco li {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid #2e7d32;
+  }
+
   .lista-noticias {
-    grid-template-columns: 1fr; /* Empilha em 1 coluna */
+    grid-template-columns: 1fr;
     padding: 20px;
   }
-
-  .link-nav {
-    display: block; /* Menu vertical */
-    margin: 10px 0;
-  }
-
-  .desc-noticia {
-    display: none; /* Esconde texto para poupar espaço no celular */
-  }
-
-  #cabecalho-eco h1 {
-    font-size: 1.5rem;
+  .desc {
+    display: none;
   }
 }

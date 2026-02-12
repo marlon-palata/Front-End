@@ -9,25 +9,25 @@
   <body>
     <header id="cabecalho-eco">
       <h1>EcoCycle</h1>
-      <button class="btn-busca" aria-label="Pesquisar notícias">🔍</button>
-      <nav id="nav-principal">
-        <a href="#" class="link-nav">Home</a>
-        <a href="#" class="link-nav">Dicas</a>
-        <a href="#" class="link-nav">Contato</a>
+
+      <input type="checkbox" id="check-menu" />
+      <label for="check-menu" id="icone-btn">&#9776;</label>
+
+      <nav id="nav-eco">
+        <ul>
+          <li><a href="#" class="link-nav">Home</a></li>
+          <li><a href="#" class="link-nav">Dicas</a></li>
+          <li><a href="#" class="link-nav">Contato</a></li>
+        </ul>
       </nav>
     </header>
 
     <main>
       <section class="lista-noticias">
         <article class="card-noticia">
-          <img
-            src="src/images/reciclagem.jpg"
-            alt="Pessoas separando lixo reciclável"
-          />
-          <h2>Guia de Reciclagem 2026</h2>
-          <p class="desc-noticia">
-            Aprenda o passo a passo para reduzir o lixo na sua casa.
-          </p>
+          <img src="src/images/reciclagem.jpg" alt="Família reciclando" />
+          <h2>Guia de Reciclagem</h2>
+          <p class="desc">Reduza o lixo na sua casa hoje mesmo.</p>
           <button class="btn-leitura">Leia Mais</button>
         </article>
 
@@ -35,24 +35,19 @@
           <div class="video-container">
             <iframe
               src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="YouTube video player"
               frameborder="0"
               allowfullscreen
             ></iframe>
           </div>
-          <h2>Energia Solar em Itu</h2>
-          <p class="desc-noticia">
-            Veja como a energia limpa está crescendo na região.
-          </p>
-          <button class="btn-leitura">Ver Vídeo</button>
+          <h2>Energia Solar</h2>
+          <p class="desc">O futuro da energia limpa.</p>
+          <button class="btn-leitura">Assistir</button>
         </article>
 
         <article class="card-noticia">
-          <img src="src/images/horta.jpg" alt="Horta comunitária urbana" />
-          <h2>Hortas Comunitárias</h2>
-          <p class="desc-noticia">
-            Como começar um projeto sustentável no seu bairro.
-          </p>
+          <img src="src/images/horta.jpg" alt="Horta Urbana" />
+          <h2>Hortas Urbanas</h2>
+          <p class="desc">Plante seu próprio alimento.</p>
           <button class="btn-leitura">Leia Mais</button>
         </article>
       </section>
