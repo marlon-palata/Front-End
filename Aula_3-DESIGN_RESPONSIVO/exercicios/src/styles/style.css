@@ -1,0 +1,123 @@
+/* --- ESTILO GERAL (DESKTOP) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#cabecalho-eco {
+  background-color: #1b5e20;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+#nav-principal {
+  margin-top: 15px;
+}
+
+.link-nav {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 5px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* ACESSIBILIDADE: Feedback visual para teclado */
+.link-nav:focus,
+.btn-leitura:focus {
+  outline: 4px solid #f1c40f;
+  outline-offset: 2px;
+}
+
+/* Exercício 2: Configuração do Grid para Desktop */
+.lista-noticias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 Colunas no PC */
+  gap: 30px;
+  padding: 40px;
+}
+
+.card-noticia {
+  border: 2px solid #2e7d32;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.card-noticia img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Exercício 3: Estilo para Vídeo Responsivo */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Mantém proporção 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-noticia h2 {
+  color: #1b5e20;
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.card-noticia p {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.btn-leitura {
+  background-color: #1b5e20;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+}
+
+/* --- SEÇÃO DE MEDIA QUERIES (ORDEM SEQUENCIAL) --- */
+
+/* SLIDE 8: OPERADOR AND - Ajuste para Tablets */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .lista-noticias {
+    grid-template-columns: 1fr 1fr; /* Muda para 2 colunas */
+  }
+}
+
+/* SLIDE 9: OPERADOR VÍRGULA - Mobile ou Portrait */
+@media screen and (max-width: 600px), (orientation: portrait) {
+  .lista-noticias {
+    grid-template-columns: 1fr; /* Empilha em 1 coluna */
+    padding: 20px;
+  }
+
+  .link-nav {
+    display: block; /* Menu vertical */
+    margin: 10px 0;
+  }
+
+  .desc-noticia {
+    display: none; /* Esconde texto para poupar espaço no celular */
+  }
+
+  #cabecalho-eco h1 {
+    font-size: 1.5rem;
+  }
+}
