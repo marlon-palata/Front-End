@@ -157,8 +157,8 @@
 /* SLIDE 11: OPERADOR NOT (NÃO) - Estilos exclusivos para Impressão
    Esconde o menu, botões e o ícone hamburguer na hora de imprimir.
 */
-@media not screen {
+/*@media not screen {
   #menu, .btn-pedido, #label-menu, #bt_menu {
     display: none;
   }
-}
+}*/
