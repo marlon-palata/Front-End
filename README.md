@@ -1,2 +1,2 @@
 # Front-End
-Conteúdos das Aulas de Fron-End - Terceiro e Quarto Termo
+Conteúdos das Aulas de Front-End - Terceiro e Quarto Termo
