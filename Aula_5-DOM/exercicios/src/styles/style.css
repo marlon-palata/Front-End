@@ -1,0 +1,129 @@
+/* --- ESTILO BASE (AULAS 1-4) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#cabecalho-eco {
+  background-color: #1b5e20;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+#check-menu,
+#icone-btn {
+  display: none;
+}
+
+#nav-eco ul {
+  list-style: none;
+  margin-top: 15px;
+}
+#nav-eco li {
+  display: inline-block;
+  margin: 0 10px;
+}
+#nav-eco a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* GRID DESKTOP */
+.lista-noticias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 40px;
+}
+
+.card-noticia {
+  border: 2px solid #2e7d32;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.card-noticia img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* VIDEO E THUMBNAIL (Ajuste para evitar Erro 153) */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Fica na frente */
+  object-fit: cover;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Fica atrás */
+}
+
+.btn-leitura {
+  background-color: #1b5e20;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* --- NOVO: AULA 5 - CLASSE DE DESTAQUE --- */
+.noticia-destaque {
+  border: 4px solid #ff9800 !important;
+  background-color: #fff3e0;
+  transform: translateY(-10px);
+}
+
+/* --- RESPONSIVIDADE (MEDIA QUERIES) --- */
+@media screen and (max-width: 1024px) {
+  .lista-noticias {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #icone-btn {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  #nav-eco ul {
+    display: none;
+  }
+
+  #check-menu:checked ~ #nav-eco ul {
+    display: block;
+  }
+
+  .lista-noticias {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
