@@ -1,4 +1,4 @@
-/* --- ESTILO BASE (AULAS 1-4) --- */
+/* --- RESET E BASE --- */
 * {
   margin: 0;
   padding: 0;
@@ -13,26 +13,14 @@
   text-align: center;
 }
 
-#check-menu,
-#icone-btn {
-  display: none;
-}
+/* Hamburguer (Oculto no Desktop) */
+#check-menu, #icone-btn { display: none; }
 
-#nav-eco ul {
-  list-style: none;
-  margin-top: 15px;
-}
-#nav-eco li {
-  display: inline-block;
-  margin: 0 10px;
-}
-#nav-eco a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
+#nav-eco ul { list-style: none; margin-top: 15px; }
+#nav-eco li { display: inline-block; margin: 0 10px; }
+#nav-eco a { color: white; text-decoration: none; font-weight: bold; }
 
-/* GRID DESKTOP */
+/* --- GRID E CARDS --- */
 .lista-noticias {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -54,32 +42,29 @@
   border-radius: 4px;
 }
 
-/* VIDEO E THUMBNAIL (Ajuste para evitar Erro 153) */
+/* --- VÍDEO E THUMBNAIL (SOLUÇÃO ERRO 153) --- */
 .video-container {
   position: relative;
-  padding-bottom: 56.25%;
+  padding-bottom: 56.25%; /* Proporção 16:9 */
   height: 0;
   overflow: hidden;
   background: #000;
+  border-radius: 4px;
 }
 
 .video-container img {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2; /* Fica na frente */
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 2; /* Fica na frente do iframe */
   object-fit: cover;
 }
 
 .video-container iframe {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1; /* Fica atrás */
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 1; /* Fica atrás da imagem */
 }
 
 .btn-leitura {
@@ -91,33 +76,38 @@
   cursor: pointer;
   font-weight: bold;
   margin-top: 10px;
+  border-radius: 4px;
 }
 
-/* --- NOVO: AULA 5 - CLASSE DE DESTAQUE --- */
+/* --- NOVO: AULA 5 - CLASSE DE MANIPULAÇÃO --- */
 .noticia-destaque {
-  border: 4px solid #ff9800 !important;
-  background-color: #fff3e0;
-  transform: translateY(-10px);
+    border: 4px solid #ff9800 !important;
+    background-color: #fff3e0;
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
 }
 
 /* --- RESPONSIVIDADE (MEDIA QUERIES) --- */
+
+/* Tablets */
 @media screen and (max-width: 1024px) {
   .lista-noticias {
     grid-template-columns: 1fr 1fr;
   }
 }
 
+/* Celulares */
 @media screen and (max-width: 600px) {
   #icone-btn {
     display: block;
     font-size: 2rem;
     cursor: pointer;
+    margin-top: 10px;
   }
 
-  #nav-eco ul {
-    display: none;
-  }
+  #nav-eco ul { display: none; }
 
+  /* Lógica do Menu hambúrguer */
   #check-menu:checked ~ #nav-eco ul {
     display: block;
   }
