@@ -40,7 +40,7 @@
   color: #2c3e50;
 }
 
-/* SLIDE 4: ESTRUTURA INICIAL EM GRID (3 COLUNAS NO PC) */
+/*ESTRUTURA INICIAL EM GRID (3 COLUNAS NO PC) */
 .vitrine-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -88,6 +88,7 @@
   text-align: center;
 }
 
+
 @media screen {
   #topo-loja h1 {
     letter-spacing: 2px;
@@ -100,11 +101,15 @@
   }
 }
 
+/*ESTRUTURA TABLET*/
+
 @media screen and (min-width: 601px) and (max-width: 1024px) {
   .vitrine-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/*ESTRUTURA CELULAR (OU TABLET NO MODO RETRATO)*/
 
 @media screen and (max-width: 600px), (orientation: portrait) {
   
