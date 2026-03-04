@@ -56,9 +56,12 @@
 }
 
 .card img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
+  width: 100%;       /* Garante que a imagem ocupe toda a largura do card */
+  height: 350px;     /* Define uma altura fixa para TODOS os cards ficarem iguais */
+  object-fit: cover; /* MÁGICA: Corta a imagem levemente para preencher o espaço sem distorcer */
+  border-radius: 5px;
+  display: block;    /* Remove espaços vazios indesejados abaixo da imagem */
+  margin-bottom: 15px;
 }
 
 .preco {
