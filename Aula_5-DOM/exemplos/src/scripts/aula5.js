@@ -54,7 +54,7 @@ imgLasanha.setAttribute('title', 'Nossa famosa massa artesanal');
 
 // VERSÃO MODERNA (Acesso Direto à Propriedade):
 // POR QUE: Mais curto, legível e preferido por desenvolvedores experientes.
-imgLasanha.src = "src/images/lasanha-destaque.png"; // Altera o caminho da imagem
+imgLasanha.src = "src/images/lasanha-destaque.jpg"; // Altera o caminho da imagem
 imgLasanha.alt = "Foto da Lasanha Bolonhesa em Destaque"; // Altera o texto alternativo
 
 
