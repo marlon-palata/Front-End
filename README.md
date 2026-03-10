@@ -51,10 +51,10 @@ Acompanhamento e orientação técnica:
 
 | Professor | Especialidade |
 | :--- | :--- |
-| **Marlon Palata Fanger Rodrigues** | Arquitetura Front-End |
-| **Felipe Augusto Stevanim Gregate** | Desenvolvimento e UX |
-| **Celso Giusti** | Engenharia de Software |
-| **Daniel Manoel Filho** | Lógica e Estrutura |
+| **Marlon Palata Fanger Rodrigues** | IoT e Front-End |
+| **Felipe Augusto Stevanim Gregate** | Design e UX/UI |
+| **Celso Giusti** | Back-End |
+| **Daniel Manoel Filho** | Mobile |
 
 ---
 
