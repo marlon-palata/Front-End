@@ -1,0 +1,186 @@
+/* --- RESET E ESTILOS BASE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#cabecalho-eco {
+  background-color: #1b5e20;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* --- MENU HAMBÚRGUER --- */
+#check-menu,
+#icone-btn {
+  display: none;
+}
+
+#nav-eco ul {
+  list-style: none;
+  margin-top: 15px;
+}
+
+#nav-eco li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+#nav-eco a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.lista-noticias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 40px;
+  align-items: stretch; /* Faz os cards esticarem para a mesma altura */
+}
+
+.card-noticia {
+  border: 2px solid #2e7d32;
+  padding: 15px;
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  flex-direction: column; /* Organiza o conteúdo do card em coluna */
+}
+
+/* O Segredo para as imagens ficarem iguais (object-fit) */
+.card-noticia img {
+  width: 100%;
+  height: 220px; /* Altura fixa para todas as imagens */
+  object-fit: cover; /* Corta o excesso sem achatar ou distorcer a imagem */
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.card-noticia h2 {
+  color: #1b5e20;
+  margin-bottom: 10px;
+}
+
+.card-noticia .desc {
+  flex-grow: 1; /* Empurra o botão sempre para o fundo do card */
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.btn-leitura {
+  background-color: #1b5e20;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+/* --- VÍDEO RESPONSIVO --- */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Proporção 16:9 */
+  height: 0;
+  overflow: hidden;
+  background: #000;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.video-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Fica na frente do iframe */
+  margin-bottom: 0; /* Remove a margem padrão das imagens do card */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* --- SIMULADOR ECO-ECONOMIA --- */
+#sessao-simulador {
+  background: #e8f5e9;
+  padding: 40px;
+  text-align: center;
+  border-top: 5px solid #2e7d32;
+}
+
+.campo-grupo {
+  margin: 20px 0;
+}
+
+.campo-grupo label {
+  font-weight: bold;
+  color: #1b5e20;
+  margin-right: 10px;
+}
+
+#input-papel {
+  width: 80px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 2px solid #2e7d32;
+  font-weight: bold;
+  text-align: center;
+  outline: none;
+}
+
+#txt-resultado {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+#txt-resultado strong {
+  color: #27ae60;
+  font-size: 1.5rem;
+}
+
+/* --- MEDIA QUERIES (RESPONSIVIDADE) --- */
+@media screen and (max-width: 900px) {
+  .lista-noticias {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #icone-btn {
+    display: block;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  #nav-eco ul {
+    display: none;
+  }
+
+  #check-menu:checked ~ #nav-eco ul {
+    display: block;
+    padding-top: 15px;
+  }
+
+  .lista-noticias {
+    grid-template-columns: 1fr; /* 1 coluna em telemóveis */
+    padding: 20px;
+  }
+}

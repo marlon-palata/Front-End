@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/styles/style.css">
+    <title>EcoCycle - Sustentabilidade e Interatividade</title>
+</head>
+
+<body>
+    <header id="cabecalho-eco">
+        <h1 id="titulo-portal">EcoCycle</h1>
+
+        <input type="checkbox" id="check-menu">
+        <label for="check-menu" id="icone-btn">&#9776;</label>
+
+        <nav id="nav-eco">
+            <ul>
+                <li><a href="#" class="link-nav">Home</a></li>
+                <li><a href="#" class="link-nav">Dicas</a></li>
+                <li><a href="#" class="link-nav">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="lista-noticias">
+            <article class="card-noticia">
+                <img src="src/images/reciclagem.jpg" alt="Família a reciclar">
+                <h2>Guia de Reciclagem</h2>
+                <p class="desc">Reduza o lixo na sua casa hoje mesmo com passos simples.</p>
+                <button class="btn-leitura">Leia Mais</button>
+            </article>
+
+            <article class="card-noticia">
+                <div class="video-container">
+                    <img src="src/images/energia.jpg" alt="Thumbnail de Energia" id="thumb-video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <h2>Energia Solar</h2>
+                <p class="desc">Descubra como o futuro da energia limpa pode ser aplicado no seu dia a dia.</p>
+                <button class="btn-leitura" id="btn-video">Assistir Vídeo</button>
+            </article>
+
+            <article class="card-noticia">
+                <img src="src/images/horta.jpg" alt="Horta Urbana em apartamento">
+                <h2>Hortas Urbanas</h2>
+                <p class="desc">Aprenda a plantar a sua própria comida, mesmo em apartamentos pequenos.</p>
+                <button class="btn-leitura">Ver Dicas</button>
+            </article>
+        </section>
+
+        <section id="sessao-simulador">
+            <h2>Simulador Eco-Economia</h2>
+            <div class="campo-grupo">
+                <label for="input-papel">Se você reciclar (kg) de papel:</label>
+                <input type="number" id="input-papel" value="0" min="0">
+            </div>
+            <p id="txt-resultado">Você poupará: <strong>0</strong> litros de água!</p>
+        </section>
+    </main>
+
+    <script src="src/scripts/eco.js"></script>
+</body>
+
+</html>

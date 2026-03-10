@@ -1,0 +1,162 @@
+/* --- ESTILO BASE (MANTENDO CORES DA AULA 05) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#topo-loja {
+    background-color: #2c3e50;
+    /* Azul Escuro Original */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+#bt_menu,
+#label-menu {
+    display: none;
+}
+
+#menu ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+#menu li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+#menu a {
+    color: #f1c40f;
+    /* Amarelo Original */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.titulo-secao {
+    text-align: center;
+    margin: 40px 0 20px;
+    color: #2c3e50;
+}
+
+.vitrine-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    background: #fff;
+    transition: transform 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.preco {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e67e22;
+    /* Laranja Original */
+    margin: 15px 0;
+}
+
+.btn-pedido {
+    background-color: #e67e22;
+    /* Laranja Original */
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* --- ESTILIZAÇÃO DO SELETOR DE QUANTIDADE (MAIS BONITO) --- */
+.quantidade-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 8px 15px;
+    border-radius: 25px;
+    border: 1px solid #eee;
+    margin: 10px auto;
+    max-width: 130px;
+}
+
+.quantidade-box label {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    font-weight: bold;
+}
+
+.quantidade-box input {
+    width: 50px;
+    border: 2px solid #e67e22;
+    border-radius: 6px;
+    padding: 3px;
+    text-align: center;
+    font-weight: bold;
+    color: #2c3e50;
+    outline: none;
+}
+
+#rodape {
+    background: #2c3e50;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* --- RESPONSIVIDADE E CORREÇÃO DE CLIQUE --- */
+@media screen and (max-width: 768px) {
+    .vitrine-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #label-menu {
+        display: block;
+        font-size: 2rem;
+        color: #f1c40f;
+        cursor: pointer;
+        position: relative;
+        z-index: 10;
+        /* Garante que o menu não bloqueie cliques acidentalmente */
+    }
+
+    #menu ul {
+        display: none;
+    }
+
+    #bt_menu:checked~#menu ul {
+        display: block;
+    }
+
+    .vitrine-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-pedido {
+        padding: 15px;
+        /* Aumenta área de toque no celular */
+    }
+}
