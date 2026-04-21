@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Aula 7 — DOM Avançado: Exemplos</title>
+  </head>
+  <body>
+    <header>
+      <h1>Aula 7 — DOM Avançado</h1>
+      <p>Clique nos botões para ver cada conceito em ação</p>
+    </header>
+
+    <main>
+      <!-- =====================================================
+         ÁREA DE DEMONSTRAÇÃO — a árvore DOM que usamos
+         nos exemplos. Estrutura igual à do slide:
+           section.lista-noticias  (PAI)
+             article.card          (FILHO 1 — firstElementChild)
+             article.card          (FILHO 2)
+             article.card          (FILHO 3 — lastElementChild)
+    ===================================================== -->
+      <section class="lista-noticias" id="lista">
+        <article class="card">
+          <h2>Guia de Reciclagem</h2>
+          <p>Reduza o lixo na sua casa hoje mesmo.</p>
+          <button class="btn-leitura">Leia Mais</button>
+        </article>
+
+        <article class="card">
+          <h2>Energia Solar</h2>
+          <p>O futuro da energia limpa no seu dia a dia.</p>
+          <button class="btn-leitura">Leia Mais</button>
+        </article>
+
+        <article class="card">
+          <h2>Hortas Urbanas</h2>
+          <p>Plante sua própria comida em apartamentos.</p>
+          <button class="btn-leitura">Leia Mais</button>
+        </article>
+      </section>
+
+      <!-- =====================================================
+         PAINEL DE BOTÕES — um botão por conceito da aula
+    ===================================================== -->
+      <section class="painel-botoes">
+        <div class="grupo">
+          <h3>Navegação na Árvore</h3>
+          <button onclick="demoParentElement()">parentElement</button>
+          <button onclick="demoChildren()">children</button>
+          <button onclick="demoFirstLast()">
+            firstElementChild / lastElementChild
+          </button>
+          <button onclick="demoSibling()">nextElementSibling</button>
+        </div>
+
+        <div class="grupo">
+          <h3>Criação e Inserção</h3>
+          <button onclick="demoCreateElement()">
+            createElement + appendChild
+          </button>
+          <button onclick="demoInsertAdjacent()">insertAdjacentHTML</button>
+          <button onclick="demoClone()">cloneNode</button>
+        </div>
+
+        <div class="grupo">
+          <h3>Remoção</h3>
+          <button onclick="demoRemove()">remove()</button>
+        </div>
+
+        <div class="grupo">
+          <h3>Eventos Avançados</h3>
+          <button onclick="demoPreventDefault()">preventDefault()</button>
+          <button onclick="demoBubbling()">Bubbling + stopPropagation()</button>
+          <button onclick="demoDelegacao()">Delegação de Eventos</button>
+          <button onclick="demoRemoveListener()">removeEventListener</button>
+        </div>
+
+        <div class="grupo reset">
+          <button onclick="resetDemo()">↺ Resetar tudo</button>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         CONSOLE VISUAL — mostra o resultado de cada demo
+    ===================================================== -->
+      <section class="console-visual" id="console-visual">
+        <p class="console-placeholder">
+          Clique em um botão acima para ver o resultado aqui...
+        </p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

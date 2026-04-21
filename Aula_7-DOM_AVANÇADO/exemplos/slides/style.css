@@ -1,0 +1,187 @@
+/* ── RESET ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background: #f4f4f4;
+}
+
+/* ── HEADER ── */
+header {
+  background: #2c3e50;
+  color: #fff;
+  padding: 20px 40px;
+}
+header h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+header p {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-top: 4px;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* ── LISTA DE NOTÍCIAS (árvore do slide) ── */
+.lista-noticias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 18px;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.card h2 {
+  font-size: 1rem;
+  color: #2c3e50;
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.btn-leitura {
+  background: #2c3e50;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: bold;
+}
+
+/* Estados visuais aplicados pelo JS */
+.destaque-pai {
+  border-color: #e67e22 !important;
+  background: #fef9f0 !important;
+}
+.destaque-filho {
+  border-color: #27ae60 !important;
+  background: #f0fff4 !important;
+}
+.destaque-sibling {
+  border-color: #8e44ad !important;
+  background: #f9f0ff !important;
+}
+.destaque-clone {
+  border-color: #3498db !important;
+  background: #eaf4ff !important;
+  opacity: 0.75;
+}
+.badge-inserido {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 3px 10px;
+  background: #e67e22;
+  color: #fff;
+  font-size: 0.72rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* ── PAINEL DE BOTÕES ── */
+.painel-botoes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.grupo {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px;
+}
+.grupo h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #999;
+  margin-bottom: 10px;
+}
+.grupo button {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 9px 14px;
+  background: #2c3e50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  text-align: left;
+  transition: background 0.15s;
+}
+.grupo button:hover {
+  background: #34495e;
+}
+.grupo button:last-child {
+  margin-bottom: 0;
+}
+
+.grupo.reset {
+  grid-column: 1 / -1;
+}
+.grupo.reset button {
+  background: #c0392b;
+  text-align: center;
+  font-weight: bold;
+}
+.grupo.reset button:hover {
+  background: #e74c3c;
+}
+
+/* ── CONSOLE VISUAL ── */
+.console-visual {
+  background: #2c3e50;
+  color: #2ecc71;
+  border-radius: 10px;
+  padding: 20px 24px;
+  font-family: monospace;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  min-height: 100px;
+}
+.console-placeholder {
+  color: #7f8c8d;
+  font-style: italic;
+}
+.console-visual .amarelo {
+  color: #f1c40f;
+}
+.console-visual .laranja {
+  color: #e67e22;
+}
+.console-visual .vermelho {
+  color: #e74c3c;
+}
+.console-visual .azul {
+  color: #3498db;
+}
+.console-visual .roxo {
+  color: #9b59b6;
+}
