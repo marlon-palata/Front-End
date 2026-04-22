@@ -4,23 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Aula 7 — DOM Avançado: Exemplos</title>
+    <title>Aula 7 — DOM Avançado: Simulador SENAI</title>
   </head>
   <body>
     <header>
       <h1>Aula 7 — DOM Avançado</h1>
-      <p>Clique nos botões para ver cada conceito em ação</p>
+      <p>Material de Apoio — Curso Técnico em Desenvolvimento de Sistemas</p>
     </header>
 
     <main>
-      <!-- =====================================================
-         ÁREA DE DEMONSTRAÇÃO — a árvore DOM que usamos
-         nos exemplos. Estrutura igual à do slide:
-           section.lista-noticias  (PAI)
-             article.card          (FILHO 1 — firstElementChild)
-             article.card          (FILHO 2)
-             article.card          (FILHO 3 — lastElementChild)
-    ===================================================== -->
       <section class="lista-noticias" id="lista">
         <article class="card">
           <h2>Guia de Reciclagem</h2>
@@ -41,54 +33,56 @@
         </article>
       </section>
 
-      <!-- =====================================================
-         PAINEL DE BOTÕES — um botão por conceito da aula
-    ===================================================== -->
       <section class="painel-botoes">
         <div class="grupo">
           <h3>Navegação na Árvore</h3>
-          <button onclick="demoParentElement()">parentElement</button>
-          <button onclick="demoChildren()">children</button>
+          <button id="btn-parent" onclick="demoParentElement()">
+            parentElement Inspector: OFF 🔴
+          </button>
+          <button onclick="demoChildren()">children vs childNodes</button>
           <button onclick="demoFirstLast()">
             firstElementChild / lastElementChild
           </button>
-          <button onclick="demoSibling()">nextElementSibling</button>
+          <button onclick="demoSiblingPrev()">previousElementSibling</button>
+          <button onclick="demoSiblingNext()">nextElementSibling</button>
         </div>
 
         <div class="grupo">
-          <h3>Criação e Inserção</h3>
+          <h3>Manipulação do DOM</h3>
           <button onclick="demoCreateElement()">
             createElement + appendChild
           </button>
+          <button onclick="demoPrepend()">createElement + prepend</button>
           <button onclick="demoInsertAdjacent()">insertAdjacentHTML</button>
-          <button onclick="demoClone()">cloneNode</button>
-        </div>
-
-        <div class="grupo">
-          <h3>Remoção</h3>
+          <button onclick="demoClone()">cloneNode(true)</button>
           <button onclick="demoRemove()">remove()</button>
         </div>
 
         <div class="grupo">
           <h3>Eventos Avançados</h3>
-          <button onclick="demoPreventDefault()">preventDefault()</button>
-          <button onclick="demoBubbling()">Bubbling + stopPropagation()</button>
-          <button onclick="demoDelegacao()">Delegação de Eventos</button>
-          <button onclick="demoRemoveListener()">removeEventListener</button>
+          <button onclick="demoPreventDefault()">
+            preventDefault() + Form
+          </button>
+          <button id="btn-bubbling" onclick="demoBubbling()">
+            Simulador de Bubbling: OFF 🔴
+          </button>
+          <button id="btn-delegacao" onclick="demoDelegacao()">
+            Delegação de Eventos: OFF 🔴
+          </button>
+          <button id="btn-remove-listener" onclick="demoRemoveListener()">
+            Listeners Individuais: OFF 🔴
+          </button>
         </div>
 
         <div class="grupo reset">
-          <button onclick="resetDemo()">↺ Resetar tudo</button>
+          <button onclick="resetDemo()">
+            ↺ Resetar Árvore e Limpar Eventos
+          </button>
         </div>
       </section>
 
-      <!-- =====================================================
-         CONSOLE VISUAL — mostra o resultado de cada demo
-    ===================================================== -->
       <section class="console-visual" id="console-visual">
-        <p class="console-placeholder">
-          Clique em um botão acima para ver o resultado aqui...
-        </p>
+        <p class="console-placeholder">Aguardando interação com o DOM...</p>
       </section>
     </main>
 

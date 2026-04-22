@@ -1,187 +1,219 @@
-/* ── RESET ── */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
 }
-
 body {
   background: #f4f4f4;
+  padding-bottom: 50px;
 }
-
-/* ── HEADER ── */
 header {
   background: #2c3e50;
   color: #fff;
   padding: 20px 40px;
 }
-header h1 {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-header p {
-  font-size: 0.85rem;
-  opacity: 0.6;
-  margin-top: 4px;
-}
-
-/* ── MAIN ── */
 main {
   max-width: 960px;
   margin: 0 auto;
   padding: 30px 20px;
 }
 
-/* ── LISTA DE NOTÍCIAS (árvore do slide) ── */
+/* LISTA (PAI) */
 .lista-noticias {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  padding: 30px 20px;
+  border: 2px dashed #95a5a6;
+  border-radius: 12px;
+  position: relative;
+  background: #ecf0f1;
+  transition: all 0.3s;
+}
+.lista-noticias::before {
+  content: '<section id="lista" class="lista-noticias">';
+  position: absolute;
+  top: -12px;
+  left: 15px;
+  background: #f4f4f4;
+  padding: 0 8px;
+  color: #7f8c8d;
+  font-family: monospace;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
+/* CARDS (FILHOS) */
 .card {
   background: #fff;
   border: 2px solid #ddd;
   border-radius: 10px;
-  padding: 18px;
-  transition:
-    border-color 0.2s,
-    background 0.2s;
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s;
+}
+.card::before {
+  content: '<article class="card">';
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 2px 6px;
+  color: #bdc3c7;
+  font-family: monospace;
+  font-size: 0.65rem;
+  border-radius: 4px;
 }
 .card h2 {
   font-size: 1rem;
   color: #2c3e50;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .card p {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #666;
   margin-bottom: 12px;
 }
-
 .btn-leitura {
   background: #2c3e50;
   color: #fff;
   border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
+  padding: 8px 12px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 0.82rem;
+  font-size: 0.75rem;
   font-weight: bold;
 }
 
-/* Estados visuais aplicados pelo JS */
+/* DESTAQUES */
 .destaque-pai {
-  border-color: #e67e22 !important;
-  background: #fef9f0 !important;
+  border: 3px solid #e67e22 !important;
+  background-color: #fef9f0 !important;
+  box-shadow: 0 0 10px rgba(230, 126, 34, 0.5);
 }
 .destaque-filho {
-  border-color: #27ae60 !important;
-  background: #f0fff4 !important;
+  border: 3px solid #27ae60 !important;
+  background-color: #f0fff4 !important;
+  transform: scale(1.02);
 }
 .destaque-sibling {
-  border-color: #8e44ad !important;
-  background: #f9f0ff !important;
+  border: 3px solid #8e44ad !important;
+  background-color: #f9f0ff !important;
 }
 .destaque-clone {
-  border-color: #3498db !important;
-  background: #eaf4ff !important;
-  opacity: 0.75;
-}
-.badge-inserido {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 3px 10px;
-  background: #e67e22;
-  color: #fff;
-  font-size: 0.72rem;
-  border-radius: 20px;
-  font-weight: bold;
+  border: 3px dashed #3498db !important;
+  background-color: #eaf4ff !important;
+  opacity: 0.8;
 }
 
-/* ── PAINEL DE BOTÕES ── */
+/* EFEITO LISTENER ATIVO */
+.escuta-ativa {
+  box-shadow: 0 0 10px #27ae60;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+    background: #2ecc71;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* EFEITO BUBBLING */
+.bubbling-efeito {
+  background: #f1c40f !important;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
+}
+
+/* PAINEL DE BOTÕES (MUDOU PARA 3 COLUNAS) */
 .painel-botoes {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 24px;
+  grid-template-columns: repeat(3, 1fr); /* 3 fileiras/colunas perfeitas */
+  gap: 15px;
+  margin-bottom: 20px;
 }
-
 .grupo {
   background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  padding: 16px;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 .grupo h3 {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #999;
+  font-size: 0.75rem;
+  color: #95a5a6;
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
 .grupo button {
-  display: block;
   width: 100%;
-  margin-bottom: 8px;
-  padding: 9px 14px;
+  margin-bottom: 5px;
+  padding: 10px;
   background: #2c3e50;
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 0.82rem;
   text-align: left;
-  transition: background 0.15s;
+  font-size: 0.8rem;
+  transition: background 0.2s;
 }
 .grupo button:hover {
   background: #34495e;
 }
-.grupo button:last-child {
-  margin-bottom: 0;
-}
 
+/* O BOTÃO DE RESET OCUFA A TELA TODA AGORA */
 .grupo.reset {
-  grid-column: 1 / -1;
+  grid-column: 1 / -1; /* Força ele a cruzar de ponta a ponta nas 3 colunas */
+  flex-direction: row;
 }
 .grupo.reset button {
   background: #c0392b;
   text-align: center;
   font-weight: bold;
+  margin: 0;
 }
 .grupo.reset button:hover {
   background: #e74c3c;
 }
 
-/* ── CONSOLE VISUAL ── */
+/* CONSOLE VISUAL */
 .console-visual {
   background: #2c3e50;
   color: #2ecc71;
-  border-radius: 10px;
-  padding: 20px 24px;
+  border-radius: 8px;
+  padding: 20px;
   font-family: monospace;
-  font-size: 0.88rem;
-  line-height: 1.8;
   min-height: 100px;
+  line-height: 1.6;
 }
 .console-placeholder {
   color: #7f8c8d;
   font-style: italic;
 }
-.console-visual .amarelo {
+.amarelo {
   color: #f1c40f;
 }
-.console-visual .laranja {
+.laranja {
   color: #e67e22;
 }
-.console-visual .vermelho {
+.vermelho {
   color: #e74c3c;
 }
-.console-visual .azul {
+.azul {
   color: #3498db;
 }
-.console-visual .roxo {
+.roxo {
   color: #9b59b6;
 }
