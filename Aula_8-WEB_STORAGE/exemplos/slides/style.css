@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  background: #f4f4f4;
+}
+
+header {
+  background: #2c3e50;
+  color: #fff;
+  padding: 20px 40px;
+}
+header h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+header p {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-top: 4px;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* Área de demo */
+.area-demo {
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+.area-demo h2 {
+  font-size: 1rem;
+  color: #2c3e50;
+  margin-bottom: 12px;
+}
+.pedido-card {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #333;
+}
+.pedido-card strong {
+  color: #2c3e50;
+}
+
+/* Painel de botões */
+.painel-botoes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.grupo {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px;
+}
+.grupo h3 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #999;
+  margin-bottom: 10px;
+}
+.grupo button {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 9px 14px;
+  background: #2c3e50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  text-align: left;
+  transition: background 0.15s;
+}
+.grupo button:hover {
+  background: #34495e;
+}
+.grupo button:last-child {
+  margin-bottom: 0;
+}
+
+.grupo.reset {
+  grid-column: 1 / -1;
+}
+.grupo.reset button {
+  background: #c0392b;
+  text-align: center;
+  font-weight: bold;
+}
+.grupo.reset button:hover {
+  background: #e74c3c;
+}
+
+/* Console visual */
+.console-visual {
+  background: #2c3e50;
+  color: #2ecc71;
+  border-radius: 10px;
+  padding: 20px 24px;
+  font-family: monospace;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  min-height: 100px;
+  margin-bottom: 16px;
+}
+.console-placeholder {
+  color: #7f8c8d;
+  font-style: italic;
+}
+.amarelo {
+  color: #f1c40f;
+}
+.laranja {
+  color: #e67e22;
+}
+.vermelho {
+  color: #e74c3c;
+}
+.azul {
+  color: #3498db;
+}
+.roxo {
+  color: #9b59b6;
+}
+
+/* DevTools hint */
+.devtools-hint {
+  background: #fffde7;
+  border: 1px solid #f9a825;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  color: #555;
+}

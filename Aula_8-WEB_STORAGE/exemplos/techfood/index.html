@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles/global.css" />
+    <link rel="stylesheet" href="src/styles/style.css" />
+    <title>TechFood - Sabor & Saber</title>
+  </head>
+  <body>
+    <header id="topo-loja">
+      <h1 id="titulo-site">TechFood - Sabor & Saber</h1>
+      <p id="boas-vindas">Carregando...</p>
+
+      <input type="checkbox" id="bt_menu" />
+      <label for="bt_menu" id="label-menu" aria-label="Abrir menu de navegação"
+        >&#9776;</label
+      >
+
+      <nav id="menu" role="navigation" aria-label="Menu principal">
+        <ul>
+          <li><a href="#secao-massas">Massas</a></li>
+          <li><a href="#secao-sobremesas">Sobremesas</a></li>
+          <li><a href="cadastro.html">Cadastrar Prato</a></li>
+          <li><a href="pedidos.html">Meus Pedidos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="secao-massas">
+        <h2 class="titulo-secao">Nossas Massas</h2>
+        <div class="vitrine-grid">
+          <article class="card" id="card-lasanha">
+            <img
+              src="src/images/lasanha.png"
+              alt="Prato de Lasanha Bolonhesa"
+              id="foto-destaque"
+              loading="lazy"
+            />
+            <h3>Lasanha Bolonhesa</h3>
+            <p class="desc">Massa artesanal e molho especial.</p>
+
+            <!--
+              Aula 7: substituímos o <input type="number"> pelos botões + e -.
+              O número fica num <span> lido pelo JS via parentElement.
+              data-preco: preço unitário usado por atualizarPrecoCard().
+            -->
+            <div class="quantidade-box">
+              <button class="btn-qtd btn-menos">-</button>
+              <span class="qtd-valor">1</span>
+              <button class="btn-qtd btn-mais">+</button>
+            </div>
+
+            <span class="preco" id="preco-lasanha" data-preco="45.00"
+              >R$ 45,00</span
+            >
+            <span class="subtotal" id="sub-lasanha"></span>
+            <button class="btn-pedido">Pedir Agora</button>
+          </article>
+
+          <article class="card">
+            <img
+              src="src/images/nhoque.png"
+              alt="Nhoque ao Pesto"
+              loading="lazy"
+            />
+            <h3>Nhoque ao Pesto</h3>
+            <p class="desc">Batata fresca e manjericão orgânico.</p>
+            <div class="quantidade-box">
+              <button class="btn-qtd btn-menos">-</button>
+              <span class="qtd-valor">1</span>
+              <button class="btn-qtd btn-mais">+</button>
+            </div>
+            <span class="preco" data-preco="38.00">R$ 38,00</span>
+            <button class="btn-pedido">Pedir Agora</button>
+          </article>
+
+          <article class="card">
+            <img
+              src="src/images/espaguete.png"
+              alt="Espaguete Carbonara"
+              loading="lazy"
+            />
+            <h3>Espaguete Carbonara</h3>
+            <p class="desc">Receita original italiana.</p>
+            <div class="quantidade-box">
+              <button class="btn-qtd btn-menos">-</button>
+              <span class="qtd-valor">1</span>
+              <button class="btn-qtd btn-mais">+</button>
+            </div>
+            <span class="preco" data-preco="42.00">R$ 42,00</span>
+            <button class="btn-pedido">Pedir Agora</button>
+          </article>
+        </div>
+      </section>
+
+      <section id="secao-sobremesas">
+        <h2 class="titulo-secao">Nossas Sobremesas</h2>
+        <div class="vitrine-grid">
+          <article class="card">
+            <img
+              src="src/images/pudim.png"
+              alt="Pudim de Leite"
+              loading="lazy"
+            />
+            <h3>Pudim de Leite</h3>
+            <p class="desc">O clássico com calda de caramelo.</p>
+            <div class="quantidade-box">
+              <button class="btn-qtd btn-menos">-</button>
+              <span class="qtd-valor">1</span>
+              <button class="btn-qtd btn-mais">+</button>
+            </div>
+            <span class="preco" data-preco="15.00">R$ 15,00</span>
+            <button class="btn-pedido">Pedir Agora</button>
+          </article>
+
+          <article class="card">
+            <img
+              src="src/images/brownie.png"
+              alt="Brownie com Sorvete"
+              loading="lazy"
+            />
+            <h3>Brownie com Sorvete</h3>
+            <p class="desc">Chocolate belga 70% cacau.</p>
+            <div class="quantidade-box">
+              <button class="btn-qtd btn-menos">-</button>
+              <span class="qtd-valor">1</span>
+              <button class="btn-qtd btn-mais">+</button>
+            </div>
+            <span class="preco" data-preco="22.00">R$ 22,00</span>
+            <button class="btn-pedido">Pedir Agora</button>
+          </article>
+
+          <article class="card">
+            <img
+              src="src/images/torta.png"
+              alt="Torta de Limão"
+              loading="lazy"
+            />
+            <h3>Torta de Limão</h3>
+            <p class="desc">Crocante e refrescante.</p>
+            <div class="quantidade-box">
+              <button class="btn-qtd btn-menos">-</button>
+              <span class="qtd-valor">1</span>
+              <button class="btn-qtd btn-mais">+</button>
+            </div>
+            <span class="preco" data-preco="18.00">R$ 18,00</span>
+            <button class="btn-pedido">Pedir Agora</button>
+          </article>
+        </div>
+      </section>
+
+      <!--
+        SEÇÃO DINÂMICA — Aula 10
+        Descomentar junto com renderizarPratosDinamicos() no main.js
+        quando cadastro.js estiver ativo.
+      -->
+      <!--
+      <section id="secao-dinamica">
+        <h2 class="titulo-secao">Pratos Cadastrados</h2>
+        <div class="vitrine-grid" id="grid-dinamico"></div>
+      </section>
+      -->
+    </main>
+
+    <footer id="rodape">
+      <div class="info-footer">
+        <p><strong>TechFood 2026</strong></p>
+        <p>Escola SENAI Ítalo Bologna - Itu/SP</p>
+        <p>Av. das Nações, 1500</p>
+      </div>
+      <p id="data-hora-footer"></p>
+    </footer>
+
+    <!--
+      global.js ANTES do main.js — ele define funções que o main.js pode usar.
+      Aula 8: global.js é novo. Antes tudo estava num arquivo só.
+    -->
+    <script src="src/scripts/global.js"></script>
+    <script src="src/scripts/main.js"></script>
+  </body>
+</html>

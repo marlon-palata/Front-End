@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Aula 8 — Web Storage: Exemplos</title>
+  </head>
+  <body>
+    <header>
+      <h1>Aula 8 — Web Storage</h1>
+      <p>Clique nos botões para ver cada conceito em ação</p>
+    </header>
+
+    <main>
+      <!-- Área de dados simulada — representa um "pedido" -->
+      <section class="area-demo">
+        <h2>📦 Pedido de Exemplo</h2>
+        <div class="pedido-card">
+          <p><strong>Prato:</strong> Lasanha Bolonhesa</p>
+          <p><strong>Quantidade:</strong> 2</p>
+          <p><strong>Preço unit.:</strong> R$ 45,00</p>
+          <p><strong>Subtotal:</strong> R$ 90,00</p>
+        </div>
+      </section>
+
+      <!-- Painel de botões -->
+      <section class="painel-botoes">
+        <div class="grupo">
+          <h3>setItem / getItem</h3>
+          <button onclick="demoSetItem()">setItem — salvar string</button>
+          <button onclick="demoGetItem()">getItem — ler string</button>
+          <button onclick="demoNumero()">salvar e ler número</button>
+          <button onclick="demoBooleano()">salvar e ler booleano</button>
+        </div>
+
+        <div class="grupo">
+          <h3>Objetos com JSON</h3>
+          <button onclick="demoStringify()">
+            JSON.stringify — objeto → string
+          </button>
+          <button onclick="demoParse()">JSON.parse — string → objeto</button>
+          <button onclick="demoPadraoSeguro()">padrão seguro || "[]"</button>
+        </div>
+
+        <div class="grupo">
+          <h3>Listas (padrão ler → push → salvar)</h3>
+          <button onclick="demoAdicionarPedido()">
+            Adicionar pedido à lista
+          </button>
+          <button onclick="demoLerPedidos()">Ler lista de pedidos</button>
+        </div>
+
+        <div class="grupo">
+          <h3>removeItem / clear</h3>
+          <button onclick="demoRemoveItem()">
+            removeItem — remove uma chave
+          </button>
+          <button onclick="demoClear()">clear — apaga tudo ⚠</button>
+        </div>
+
+        <div class="grupo reset">
+          <button onclick="resetDemo()">↺ Resetar demonstração</button>
+        </div>
+      </section>
+
+      <!-- Console visual -->
+      <section class="console-visual" id="console-visual">
+        <p class="console-placeholder">
+          Clique em um botão acima para ver o resultado aqui...
+        </p>
+      </section>
+
+      <!-- DevTools hint -->
+      <section class="devtools-hint">
+        <p>
+          💡 Abra o DevTools (F12) → aba <strong>Application</strong> →
+          <strong>Local Storage</strong> para ver os dados em tempo real.
+        </p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
