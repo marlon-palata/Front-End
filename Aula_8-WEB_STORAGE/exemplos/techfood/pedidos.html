@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles/global.css" />
+    <link rel="stylesheet" href="src/styles/pedidos.css" />
+    <title>TechFood - Meus Pedidos</title>
+  </head>
+  <body>
+    <header id="topo-loja">
+      <h1 id="titulo-site">TechFood - Sabor & Saber</h1>
+      <p id="boas-vindas">Carregando...</p>
+
+      <input type="checkbox" id="bt_menu" />
+      <label for="bt_menu" id="label-menu" aria-label="Abrir menu de navegação"
+        >&#9776;</label
+      >
+
+      <nav id="menu" role="navigation" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Cardápio</a></li>
+          <li><a href="cadastro.html">Cadastrar Prato</a></li>
+          <li><a href="pedidos.html" class="ativo">Meus Pedidos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="secao-pedidos">
+        <h2 class="titulo-secao">&#128722; Meus Pedidos</h2>
+
+        <!--
+          Resumo rápido no topo: total de itens e valor total.
+          Preenchido dinamicamente por renderizarPedidos() no pedidos.js.
+        -->
+        <div id="resumo-pedidos">
+          <span id="contador-itens">0 itens</span>
+          <span id="valor-total-resumo">R$ 0,00</span>
+        </div>
+
+        <!--
+          Lista de pedidos — começa com uma mensagem padrão.
+          O pedidos.js substitui o conteúdo ao carregar a página.
+        -->
+        <ol id="lista-pedidos" aria-label="Lista de pedidos realizados">
+          <li class="pedido-vazio">
+            Nenhum pedido ainda. Acesse o
+            <a href="index.html">Cardápio</a>
+            para adicionar! &#128522;
+          </li>
+        </ol>
+
+        <!-- Total geral e botões de ação -->
+        <div id="total-pedidos">
+          <strong>Total Geral: <span id="valor-total">R$ 0,00</span></strong>
+          <div class="btn-pedidos-grupo">
+            <button id="btn-limpar-pedidos" class="btn-limpar-pedidos">
+              &#128465; Limpar Pedidos
+            </button>
+            <a href="index.html" class="btn-voltar-cardapio">
+              &#8592; Voltar ao Cardápio
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="rodape">
+      <div class="info-footer">
+        <p><strong>TechFood 2026</strong></p>
+        <p>Escola SENAI Ítalo Bologna - Itu/SP</p>
+        <p>Av. das Nações, 1500</p>
+      </div>
+      <p id="data-hora-footer"></p>
+    </footer>
+
+    <!--
+      global.js antes do pedidos.js — saudação e data do footer
+      precisam estar disponíveis quando a página carregar.
+    -->
+    <script src="src/scripts/global.js"></script>
+    <script src="src/scripts/pedidos.js"></script>
+  </body>
+</html>

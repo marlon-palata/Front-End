@@ -145,10 +145,24 @@ function inicializarVitrine() {
       clicado.style.backgroundColor = "#27ae60";
       clicado.disabled = true;
 
+      // O setTimeout agrupa as ações que acontecem JUNTAS após 1,5s:
+      // o botão volta ao estado original E a quantidade reseta para 1.
+      // Colocar o reset fora do setTimeout faria ele acontecer imediatamente
+      // ao clique, antes do usuário ver o feedback "✓ Adicionado!".
       setTimeout(function () {
         clicado.textContent = "Pedir Agora";
         clicado.style.backgroundColor = "";
         clicado.disabled = false;
+
+        // Reset de quantidade — dentro do setTimeout para sincronizar
+        // com o retorno visual do botão. Assim o usuário vê o feedback
+        // completo antes dos valores mudarem.
+        const box = card.querySelector(".quantidade-box");
+        if (box) {
+          const spanQtd = box.querySelector(".qtd-valor");
+          if (spanQtd) spanQtd.textContent = "1";
+          atualizarPrecoCard(box);
+        }
       }, 1500);
 
       // Badge no card — Aula 7 → Aula 8

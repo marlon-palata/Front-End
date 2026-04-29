@@ -1,0 +1,180 @@
+/* ==========================================================
+   PEDIDOS.CSS — Estilos da página de Pedidos (pedidos.html)
+   Aula 8: entregue pronto — o live code foca no pedidos.js
+   ========================================================== */
+
+/* ── Seção principal ─────────────────────────────────────── */
+#secao-pedidos {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ── Resumo rápido no topo ───────────────────────────────── */
+#resumo-pedidos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px 20px;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+#resumo-pedidos #valor-total-resumo {
+  font-weight: bold;
+  color: #e67e22;
+  font-size: 1rem;
+}
+
+/* ── Lista de pedidos ────────────────────────────────────── */
+#lista-pedidos {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.item-pedido {
+  padding: 14px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.95rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.item-pedido:last-child {
+  border-bottom: none;
+}
+
+.item-pedido:hover {
+  background: #fafafa;
+}
+
+/* Botão ✕ remover item individual — Aula 7 → Aula 8
+   Na Aula 7 removia do DOM diretamente.
+   Aqui remove do localStorage e re-renderiza. */
+.btn-remover-item {
+  background: none;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+
+.btn-remover-item:hover {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.subtotal-item {
+  color: #e67e22;
+  font-weight: bold;
+}
+
+.pedido-vazio {
+  padding: 30px 20px;
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
+}
+
+.pedido-vazio a {
+  color: #e67e22;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.pedido-vazio a:hover {
+  text-decoration: underline;
+}
+
+/* ── Total geral e botões ────────────────────────────────── */
+#total-pedidos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 2px solid #e0e0e0;
+}
+
+#total-pedidos strong {
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+#valor-total {
+  color: #e67e22;
+  font-size: 1.2rem;
+}
+
+.btn-pedidos-grupo {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-limpar-pedidos {
+  background: none;
+  border: 2px solid #e74c3c;
+  color: #e74c3c;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: bold;
+  transition: all 0.15s;
+}
+
+.btn-limpar-pedidos:hover {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.btn-voltar-cardapio {
+  background: #2c3e50;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: bold;
+  transition: background 0.15s;
+}
+
+.btn-voltar-cardapio:hover {
+  background: #34495e;
+}
+
+/* ── Responsivo ──────────────────────────────────────────── */
+@media (max-width: 600px) {
+  #total-pedidos {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-pedidos-grupo {
+    width: 100%;
+  }
+
+  .btn-limpar-pedidos,
+  .btn-voltar-cardapio {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -249,6 +249,18 @@
 
   #bt_menu:checked ~ #menu ul {
     display: block;
+    padding: 8px 0;
+  }
+
+  #menu li {
+    display: block;
+    margin: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  #menu li:last-child {
+    border-bottom: none;
   }
 
   .vitrine-grid {
