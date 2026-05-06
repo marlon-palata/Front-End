@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles/global.css" />
+    <link rel="stylesheet" href="src/styles/pedidos.css" />
+    <title>TechFood - Painel da Cozinha</title>
+  </head>
+  <body>
+    <header id="topo-loja">
+      <h1 id="titulo-site">TechFood - Sabor & Saber</h1>
+      <p id="boas-vindas">Carregando...</p>
+
+      <input type="checkbox" id="bt_menu" />
+      <label for="bt_menu" id="label-menu" aria-label="Abrir menu"
+        >&#9776;</label
+      >
+
+      <nav id="menu">
+        <ul>
+          <li><a href="index.html">Cardápio</a></li>
+          <li><a href="pedidos.html" class="ativo">Meus Pedidos</a></li>
+          <li><a href="cadastro.html">Cadastrar Prato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="secao-pedidos">
+        <h2 class="titulo-secao">&#128722; Painel da Cozinha</h2>
+
+        <!-- Resumo rápido — preenchido por renderizarPedidos() -->
+        <div id="resumo-pedidos">
+          <span id="contador-itens">0 itens</span>
+          <span id="valor-total-resumo">R$ 0,00</span>
+        </div>
+
+        <!--
+          Lista de pedidos — preenchida pelo pedidos.js via GET /pedidos.
+          Aula 8: lia do localStorage.
+          Aula 9: busca do banco de dados via API.
+          Cada item mostra o status e um botão para avançar o fluxo:
+          pendente → preparo → pronto → entregue
+        -->
+        <ol id="lista-pedidos" aria-label="Lista de pedidos">
+          <li class="pedido-vazio">Carregando pedidos...</li>
+        </ol>
+
+        <div id="total-pedidos">
+          <strong>Total Geral: <span id="valor-total">R$ 0,00</span></strong>
+        </div>
+      </section>
+    </main>
+
+    <footer id="rodape">
+      <div class="info-footer">
+        <p><strong>TechFood 2026</strong></p>
+        <p>Escola SENAI Ítalo Bologna - Itu/SP</p>
+        <p>Av. das Nações, 1500</p>
+      </div>
+      <p id="data-hora-footer"></p>
+    </footer>
+
+    <!--
+      api.js antes do pedidos.js — pedidos.js chama
+      buscarPedidos() e atualizarStatusPedido() do api.js.
+    -->
+    <script src="src/scripts/global.js"></script>
+    <script src="src/scripts/api.js"></script>
+    <script src="src/scripts/pedidos.js"></script>
+  </body>
+</html>

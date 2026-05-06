@@ -1,0 +1,161 @@
+/* ==========================================================
+   GLOBAL.CSS — Estilos compartilhados por todas as páginas.
+   Aula 8: criado junto com o global.js — o que é de todas
+   as páginas não pode viver num arquivo que só carrega em uma.
+
+   Carregado ANTES de qualquer CSS de página em todos os HTMLs.
+   ========================================================== */
+
+/* ── RESET ──────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* ── VARIÁVEIS DE COR ───────────────────────────────────── */
+:root {
+  --cor-primaria: #2c3e50;
+  --cor-destaque: #e67e22;
+  --cor-amarelo: #f1c40f;
+  --cor-verde: #27ae60;
+  --cor-vermelho: #e74c3c;
+}
+
+/* ── HEADER ─────────────────────────────────────────────── */
+#topo-loja {
+  background-color: var(--cor-primaria);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+#titulo-site {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+#boas-vindas {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-bottom: 10px;
+}
+
+/* ── MENU HAMBÚRGUER ────────────────────────────────────── */
+#bt_menu,
+#label-menu {
+  display: none;
+}
+
+#menu ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+#menu li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+@media screen and (max-width: 600px) {
+  #menu li {
+    display: block;
+    margin: 8px 0;
+  }
+}
+
+#menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  opacity: 0.8;
+  transition: opacity 0.15s;
+}
+
+#menu a:hover,
+#menu a.ativo {
+  color: var(--cor-amarelo);
+  opacity: 1;
+}
+
+/* ── Badge contador no link do menu — Aula 8 ────────────────
+   Criado por atualizarContadorPedidos() no main.js
+   quando o primeiro pedido é salvo.
+   ─────────────────────────────────────────────────────────── */
+.badge-menu {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cor-destaque);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+a.menu-ativo {
+  color: var(--cor-amarelo) !important;
+  opacity: 1 !important;
+}
+
+/* ── TÍTULO DAS SEÇÕES ──────────────────────────────────── */
+.titulo-secao {
+  text-align: center;
+  margin: 40px 0 20px;
+  color: var(--cor-primaria);
+  font-size: 1.3rem;
+}
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+#rodape {
+  background: var(--cor-primaria);
+  color: #fff;
+  padding: 30px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.info-footer p {
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+#data-hora-footer {
+  font-size: 0.8rem;
+  opacity: 0.55;
+  margin-top: 10px;
+}
+
+/* ── RESPONSIVO ─────────────────────────────────────────── */
+@media screen and (max-width: 600px) {
+  #label-menu {
+    display: block;
+    font-size: 2rem;
+    color: var(--cor-amarelo);
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  #menu ul {
+    display: none;
+  }
+
+  #bt_menu:checked ~ #menu ul {
+    display: block;
+    padding: 10px 0;
+  }
+
+  #menu li {
+    display: block;
+    margin: 8px 0;
+  }
+}

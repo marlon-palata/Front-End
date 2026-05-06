@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles/global.css" />
+    <link rel="stylesheet" href="src/styles/style.css" />
+    <title>TechFood - Sabor & Saber</title>
+  </head>
+  <body>
+    <!-- =====================================================
+         MODAL DE BOAS-VINDAS — Aula 9
+         Aparece na primeira vez que o cliente acessa.
+         display:none — o global.js exibe quando necessário.
+         O nome é salvo no sessionStorage — some ao fechar a aba,
+         ideal para restaurante: cada sessão é um cliente novo.
+    ===================================================== -->
+    <div id="modal-boas-vindas" style="display: none">
+      <div class="modal-bv-conteudo">
+        <h2>👋 Bem-vindo ao TechFood!</h2>
+        <p>Como podemos te chamar?</p>
+        <input
+          type="text"
+          id="input-nome-cliente"
+          placeholder="Digite seu nome..."
+          maxlength="30"
+        />
+        <button id="btn-confirmar-nome">Confirmar</button>
+      </div>
+    </div>
+
+    <header id="topo-loja">
+      <h1 id="titulo-site">TechFood - Sabor & Saber</h1>
+      <p id="boas-vindas">Carregando...</p>
+
+      <input type="checkbox" id="bt_menu" />
+      <label for="bt_menu" id="label-menu" aria-label="Abrir menu"
+        >&#9776;</label
+      >
+
+      <nav id="menu">
+        <ul>
+          <li><a href="#grid-cardapio">Cardápio</a></li>
+          <li><a href="pedidos.html">Meus Pedidos</a></li>
+          <li><a href="cadastro.html">Cadastrar Prato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- =====================================================
+           GRID DO CARDÁPIO — Aula 9
+           Aula 8: cards fixos no HTML.
+           Aula 9: grid vazio — renderizarCardapio() no main.js
+           busca os pratos via GET /produtos e cria os cards
+           dinamicamente com createElement (Aula 7).
+      ===================================================== -->
+      <section id="secao-cardapio">
+        <h2 class="titulo-secao">Nosso Cardápio</h2>
+        <div class="vitrine-grid" id="grid-cardapio">
+          <!-- Preenchido pelo main.js via API -->
+        </div>
+      </section>
+    </main>
+
+    <footer id="rodape">
+      <div class="info-footer">
+        <p><strong>TechFood 2026</strong></p>
+        <p>Escola SENAI Ítalo Bologna - Itu/SP</p>
+        <p>Av. das Nações, 1500</p>
+      </div>
+      <p id="data-hora-footer"></p>
+    </footer>
+
+    <!--
+      Ordem dos scripts — importante:
+      1. global.js → funções compartilhadas (saudação, modal)
+      2. api.js    → funções de fetch (main.js depende delas)
+      3. main.js   → lógica do cardápio
+    -->
+    <script src="src/scripts/global.js"></script>
+    <script src="src/scripts/api.js"></script>
+    <script src="src/scripts/main.js"></script>
+  </body>
+</html>

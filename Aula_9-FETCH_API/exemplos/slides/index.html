@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Aula 9 — Fetch API: Exemplos</title>
+</head>
+<body>
+
+  <header>
+    <h1>Aula 9 — Fetch API</h1>
+    <p>Clique nos botões para ver cada conceito em ação</p>
+    <p class="aviso">⚠ Servidor precisa estar rodando em localhost:3000</p>
+  </header>
+
+  <main>
+
+    <!-- Área visual de resultado -->
+    <section class="area-demo">
+      <h2>📦 Resultado da requisição</h2>
+      <div id="resultado-demo" class="resultado-vazio">
+        Nenhuma requisição feita ainda...
+      </div>
+    </section>
+
+    <!-- Painel de botões -->
+    <section class="painel-botoes">
+
+      <div class="grupo">
+        <h3>fetch básico</h3>
+        <button onclick="demoFetchSimples()">fetch sem await (Promise)</button>
+        <button onclick="demoFetchThen()">fetch com .then()</button>
+        <button onclick="demoFetchAwait()">fetch com async/await</button>
+      </div>
+
+      <div class="grupo">
+        <h3>GET — buscar dados</h3>
+        <button onclick="demoGet()">GET /produtos</button>
+        <button onclick="demoGetFiltrado()">GET /produtos (só disponíveis)</button>
+      </div>
+
+      <div class="grupo">
+        <h3>POST — enviar dados</h3>
+        <button onclick="demoPost()">POST /pedidos</button>
+      </div>
+
+      <div class="grupo">
+        <h3>Erros e CORS</h3>
+        <button onclick="demoSemTryCatch()">fetch sem try/catch</button>
+        <button onclick="demoComTryCatch()">fetch com try/catch</button>
+        <button onclick="demoResOk()">res.ok — rota inexistente</button>
+      </div>
+
+      <div class="grupo">
+        <h3>sessionStorage</h3>
+        <button onclick="demoSessionSet()">setItem — salvar nome</button>
+        <button onclick="demoSessionGet()">getItem — ler nome</button>
+        <button onclick="demoSessionClear()">removeItem — limpar</button>
+      </div>
+
+      <div class="grupo reset">
+        <button onclick="resetDemo()">↺ Limpar resultado</button>
+      </div>
+
+    </section>
+
+    <!-- Console visual -->
+    <section class="console-visual" id="console-visual">
+      <p class="console-placeholder">Clique em um botão para ver o resultado aqui...</p>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
