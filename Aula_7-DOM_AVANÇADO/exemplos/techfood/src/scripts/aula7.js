@@ -1,11 +1,11 @@
 /* ==========================================================
-   AULA 07: DOM AVANÇADO - TECHFOOD
+   AULA 7: DOM AVANÇADO — TECHFOOD
    Navegação na Árvore, Criação de Elementos e Delegação
 
    ORDEM DE ESCRITA NO LIVE CODE (igual ao roteiro):
-   1. Saudação e hover  (mantidos da Aula 6)
+   1. Saudação e hover        (mantidos da Aula 6 — copiar, não reescrever)
    2. Delegação de eventos no <main> com filtro
-   3. Quantidade moderna com + e - (dentro da delegação)
+   3. Quantidade moderna com + e -  (dentro da delegação)
    4. Navegação com parentElement no botão Pedir Agora
    5. insertAdjacentHTML: badge no card
    6. createElement + appendChild: resumo do pedido
@@ -58,7 +58,7 @@ main.addEventListener("click", (event) => {
   const clicado = event.target;
 
 
-  // ───────────────────────────────────────────────────────
+  // ─────────────────────────────────────────────────────
   // PARTE 3 — QUANTIDADE MODERNA (escrever ao vivo)
   //
   // Os botões - e + também estão dentro do <main>,
@@ -70,7 +70,7 @@ main.addEventListener("click", (event) => {
   // Math.max(1, valor - 1): garante que nunca vai abaixo de 1
   // Math.max retorna o MAIOR entre os dois números.
   // Se o cálculo der 0, ele devolve 1.
-  // ───────────────────────────────────────────────────────
+  // ─────────────────────────────────────────────────────
 
   if (clicado.classList.contains("btn-menos")) {
     const box = clicado.parentElement;
@@ -90,7 +90,7 @@ main.addEventListener("click", (event) => {
   }
 
 
-  // ───────────────────────────────────────────────────────
+  // ─────────────────────────────────────────────────────
   // PARTE 4 — NAVEGAÇÃO COM parentElement (escrever ao vivo)
   //
   // Estrutura HTML do card:
@@ -106,7 +106,7 @@ main.addEventListener("click", (event) => {
   // card.querySelector("h3") → desce para pegar o nome
   // card.querySelector(".qtd-valor") → quantidade atual
   // card.querySelector(".preco") → preço já calculado
-  // ───────────────────────────────────────────────────────
+  // ─────────────────────────────────────────────────────
 
   if (clicado.classList.contains("btn-pedido")) {
     event.preventDefault();
@@ -128,7 +128,7 @@ main.addEventListener("click", (event) => {
     }, 1500);
 
 
-    // ─────────────────────────────────────────────────────
+    // ───────────────────────────────────────────────────
     // PARTE 5 — insertAdjacentHTML: badge no card (escrever ao vivo)
     //
     // Insere um badge "✔ No resumo" DENTRO do card,
@@ -146,7 +146,7 @@ main.addEventListener("click", (event) => {
     // insertAdjacentHTML adiciona SEM destruir nada.
     //
     // Verificamos se o badge já existe para não duplicar.
-    // ─────────────────────────────────────────────────────
+    // ───────────────────────────────────────────────────
     if (!card.querySelector(".badge-adicionado")) {
       card.insertAdjacentHTML(
         "beforeend",
@@ -219,7 +219,7 @@ function adicionarItemAoResumo(nome, qtd, preco, cardOrigem) {
   btnRemover.classList.add("btn-remover");
 
 
-  // ───────────────────────────────────────────────────────
+  // ─────────────────────────────────────────────────────
   // PARTE 7 — remove() (escrever ao vivo)
   //
   // Ao clicar no ✕:
@@ -230,7 +230,7 @@ function adicionarItemAoResumo(nome, qtd, preco, cardOrigem) {
   // remove() é o oposto de appendChild:
   // o elemento se retira da página por conta própria,
   // sem precisar do pai para isso.
-  // ───────────────────────────────────────────────────────
+  // ─────────────────────────────────────────────────────
   btnRemover.addEventListener("click", () => {
     itemLi.remove();
 
@@ -274,3 +274,10 @@ if (btnLimpar) {
     secaoResumo.style.display = "none";
   });
 }
+
+
+// ─────────────────────────────────────────────────────────
+// PRÓXIMA AULA: renderizarPratosDinamicos()
+// createElement → cria o card
+// appendChild   → insere na vitrine
+// ─────────────────────────────────────────────────────────

@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   configurarLimparPedidos();
 });
 
+
 // ─────────────────────────────────────────────────────────────────────────────
 // renderizarPedidos()
 // Aula 7: adicionarItemAoResumo() criava um <li> por clique na mesma
@@ -29,9 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
 //   Funciona como um forEach, mas devolve um único valor ao final.
 // ─────────────────────────────────────────────────────────────────────────────
 function renderizarPedidos() {
-  const lista = document.querySelector("#lista-pedidos");
-  const spanTotal = document.querySelector("#valor-total");
-  const spanResumo = document.querySelector("#valor-total-resumo");
+  const lista        = document.querySelector("#lista-pedidos");
+  const spanTotal    = document.querySelector("#valor-total");
+  const spanResumo   = document.querySelector("#valor-total-resumo");
   const spanContador = document.querySelector("#contador-itens");
 
   if (!lista) return;
@@ -43,11 +44,8 @@ function renderizarPedidos() {
     lista.innerHTML =
       "<li class='pedido-vazio'>Nenhum pedido ainda. Acesse o " +
       "<a href='index.html'>Cardápio</a> para adicionar! 😊</li>";
-    // Zera os totais ao esvaziar o carrinho — sem isso os valores
-    // anteriores ficam na tela porque o return impede o trecho
-    // que os atualiza lá embaixo de ser executado.
-    if (spanTotal) spanTotal.textContent = "R$ 0,00";
-    if (spanResumo) spanResumo.textContent = "R$ 0,00";
+    if (spanTotal)    spanTotal.textContent    = "R$ 0,00";
+    if (spanResumo)   spanResumo.textContent   = "R$ 0,00";
     if (spanContador) spanContador.textContent = "0 itens";
     return;
   }
@@ -58,25 +56,16 @@ function renderizarPedidos() {
 
   pedidos.forEach(function (pedido, indice) {
     // createElement + appendChild — Aula 7, mesmo padrão, nova página.
-    // Cada item tem um botão ✕ para remover individualmente —
-    // o mesmo padrão do botão de remover da Aula 7, agora com
-    // persistência: remove do localStorage e re-renderiza a lista.
     const li = document.createElement("li");
     li.classList.add("item-pedido");
 
     const textoSpan = document.createElement("span");
     textoSpan.innerHTML =
-      "<strong>" +
-      pedido.nome +
-      "</strong>" +
-      " — " +
-      pedido.qtd +
-      "x" +
-      " R$ " +
-      pedido.preco.toFixed(2).replace(".", ",") +
+      "<strong>" + pedido.nome + "</strong>" +
+      " — " + pedido.qtd + "x" +
+      " R$ " + pedido.preco.toFixed(2).replace(".", ",") +
       " = <span class='subtotal-item'>R$ " +
-      pedido.subtotal.toFixed(2).replace(".", ",") +
-      "</span>";
+      pedido.subtotal.toFixed(2).replace(".", ",") + "</span>";
 
     const btnRemover = document.createElement("button");
     btnRemover.textContent = "✕";
@@ -86,7 +75,7 @@ function renderizarPedidos() {
     // splice(indice, 1) remove 1 elemento na posição exata do pedido.
     btnRemover.addEventListener("click", function () {
       const lista = JSON.parse(
-        localStorage.getItem("techfood_pedidos") || "[]",
+        localStorage.getItem("techfood_pedidos") || "[]"
       );
       lista.splice(indice, 1);
       localStorage.setItem("techfood_pedidos", JSON.stringify(lista));
@@ -100,7 +89,7 @@ function renderizarPedidos() {
   });
 
   const totalFmt = "R$ " + total.toFixed(2).replace(".", ",");
-  if (spanTotal) spanTotal.textContent = totalFmt;
+  if (spanTotal)  spanTotal.textContent  = totalFmt;
   if (spanResumo) spanResumo.textContent = totalFmt;
 
   // reduce acumula as quantidades — devolve o total de itens
@@ -112,6 +101,7 @@ function renderizarPedidos() {
       totalItens + (totalItens === 1 ? " item" : " itens");
   }
 }
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 // configurarLimparPedidos()
@@ -137,18 +127,3 @@ function configurarLimparPedidos() {
     renderizarPedidos();
   });
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// [ ] Futuro — Integração com Back-end
-// Quando o servidor estiver pronto, o localStorage dá lugar ao fetch().
-// A lógica de exibição permanece igual — só muda a origem dos dados.
-// ─────────────────────────────────────────────────────────────────────────────
-//
-// function renderizarPedidos() {
-//   fetch("https://api.techfood.com/pedidos")
-//     .then(function(res) { return res.json(); })
-//     .then(function(pedidos) {
-//       // mesma lógica de exibição acima
-//     })
-//     .catch(function(err) { console.error("Erro ao buscar pedidos:", err); });
-// }

@@ -13,9 +13,10 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   exibirBoasVindas();
-  exibirDataFooter();
-  fecharMenuAoNavegar();
+  exibirDataFooter();     // NEW
+  fecharMenuAoNavegar();  // NEW
 });
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 // exibirBoasVindas()
@@ -31,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
 //   as três páginas têm o mesmo #boas-vindas no header.
 // ─────────────────────────────────────────────────────────────────────────────
 function exibirBoasVindas() {
-  const agora = new Date();
-  const hora = agora.getHours();
+  const agora   = new Date();
+  const hora    = agora.getHours();
   const minutos = agora.getMinutes();
   const horaExata = hora + minutos / 60;
 
@@ -49,8 +50,9 @@ function exibirBoasVindas() {
   if (elemSaudacao) elemSaudacao.textContent = saudacao;
 }
 
+
 // ─────────────────────────────────────────────────────────────────────────────
-// exibirDataFooter()
+// exibirDataFooter()                                                      NEW
 // Aula 8: exibe a data atual no rodapé de todas as páginas.
 //   O #data-hora-footer existe em index.html, cadastro.html e pedidos.html.
 //
@@ -64,18 +66,19 @@ function exibirDataFooter() {
   const agora = new Date();
   const dataFormatada = agora.toLocaleDateString("pt-BR", {
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    year:    "numeric",
+    month:   "long",
+    day:     "numeric"
   });
 
   elemFooter.textContent = dataFormatada;
 }
 
+
 // ─────────────────────────────────────────────────────────────────────────────
-// fecharMenuAoNavegar()
-// Aula 3 (Design Responsivo): no mobile, fecha o menu hambúrguer
-//   automaticamente ao clicar em qualquer link de navegação.
+// fecharMenuAoNavegar()                                                   NEW
+// Aula 8: no mobile, fecha o menu hambúrguer automaticamente ao clicar
+//   em qualquer link de navegação.
 //
 // window.matchMedia verifica se uma media query CSS está ativa —
 //   a mesma lógica do @media (max-width: 600px) do CSS, acessível pelo JS.
