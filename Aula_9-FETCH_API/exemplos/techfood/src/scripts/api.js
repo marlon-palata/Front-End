@@ -68,6 +68,23 @@ async function buscarPedidos() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// deletarPedido(id)
+// DELETE /pedidos/:id — remove um pedido do banco de dados.
+//
+// DELETE vs PATCH:
+//   PATCH atualiza campos. DELETE remove o recurso por completo.
+//   Usado aqui para limpar pedidos do painel da cozinha.
+// ─────────────────────────────────────────────────────────────────────────────
+async function deletarPedido(id) {
+  var response = await fetch(BASE_URL + "/pedidos/" + id, {
+    method: "DELETE",
+  });
+  if (!response.ok)
+    throw new Error("Erro ao deletar pedido: " + response.status);
+  return await response.json();
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // atualizarStatusPedido(id, novoStatus)
 // PATCH /pedidos/:id/status — avança o status de um pedido na cozinha.
 //

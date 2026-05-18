@@ -17,7 +17,7 @@
         >&#9776;</label
       >
 
-      <nav id="menu">
+      <nav id="menu" role="navigation" aria-label="Menu principal">
         <ul>
           <li><a href="index.html">Cardápio</a></li>
           <li><a href="pedidos.html" class="ativo">Meus Pedidos</a></li>
@@ -28,7 +28,7 @@
 
     <main>
       <section id="secao-pedidos">
-        <h2 class="titulo-secao">&#128722; Painel da Cozinha</h2>
+        <h2 class="titulo-secao">&#128722; Meus Pedidos</h2>
 
         <!-- Resumo rápido — preenchido por renderizarPedidos() -->
         <div id="resumo-pedidos">
@@ -37,18 +37,35 @@
         </div>
 
         <!--
-          Lista de pedidos — preenchida pelo pedidos.js via GET /pedidos.
-          Aula 8: lia do localStorage.
-          Aula 9: busca do banco de dados via API.
-          Cada item mostra o status e um botão para avançar o fluxo:
-          pendente → preparo → pronto → entregue
+          Lista de pedidos — começa com uma mensagem padrão.
+          O pedidos.js substitui o conteúdo ao carregar a página.
+          Aula 9: botão "Enviar para Cozinha" abaixo envia os itens à API.
         -->
-        <ol id="lista-pedidos" aria-label="Lista de pedidos">
-          <li class="pedido-vazio">Carregando pedidos...</li>
+        <ol id="lista-pedidos" aria-label="Lista de pedidos realizados">
+          <li class="pedido-vazio">
+            Nenhum pedido ainda. Acesse o
+            <a href="index.html">Card&#225;pio</a>
+            para adicionar! &#128522;
+          </li>
         </ol>
 
         <div id="total-pedidos">
           <strong>Total Geral: <span id="valor-total">R$ 0,00</span></strong>
+          <div class="btn-pedidos-grupo">
+            <button id="btn-limpar-pedidos" class="btn-limpar-pedidos">
+              &#128465; Limpar Pedidos
+            </button>
+            <a href="index.html" class="btn-voltar-cardapio">
+              &#8592; Voltar ao Card&#225;pio
+            </a>
+            <!--
+              Aula 9: botão que envia o carrinho do localStorage ao banco de dados.
+              Chama configurarEnviarCozinha() em pedidos.js via POST /pedidos.
+            -->
+            <button id="btn-enviar-cozinha" class="btn-enviar-cozinha">
+              &#127859; Enviar para Cozinha
+            </button>
+          </div>
         </div>
       </section>
     </main>

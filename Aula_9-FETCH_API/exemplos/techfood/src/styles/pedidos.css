@@ -173,10 +173,36 @@
   }
 
   .btn-limpar-pedidos,
-  .btn-voltar-cardapio {
+  .btn-voltar-cardapio,
+  .btn-enviar-cozinha {
     width: 100%;
     text-align: center;
   }
+}
+
+/* ── Botão "Enviar para Cozinha" — Aula 9 ───────────────────
+   Chama POST /pedidos — o momento principal da Fetch API.
+   Destaque em verde para diferenciar dos outros botões.
+   ─────────────────────────────────────────────────────────── */
+.btn-enviar-cozinha {
+  background: #27ae60;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: bold;
+  transition: background 0.15s;
+}
+
+.btn-enviar-cozinha:hover {
+  background: #219150;
+}
+
+.btn-enviar-cozinha:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
 }
 
 /* =============================================================

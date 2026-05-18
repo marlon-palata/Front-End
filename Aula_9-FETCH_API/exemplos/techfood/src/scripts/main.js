@@ -6,7 +6,9 @@
                  inicializarVitrine(), atualizarPrecoCard(),
                  salvarPedido() (localStorage), atualizarContadorPedidos()
    [✔] Aula 9  — renderizarCardapio() adicionada: cards agora vêm da API.
-                 salvarPedido() substituída: envia para o servidor via api.js.
+                 salvarPedido() mantém localStorage (como Aula 8), mas salva
+                 produto_id para que pedidos.js possa enviar à API.
+                 O POST /pedidos acontece em pedidos.js via "Enviar para Cozinha".
                  inicializarSubtotal() removida: não faz mais sentido porque
                  os cards fixos do HTML sumiram — o grid é montado pela API.
    [ ] Aula 10 — cadastrarProduto() via cadastro.js
@@ -140,7 +142,7 @@ function inicializarVitrine() {
       return;
     }
 
-    // ── Botão PEDIR AGORA — mudou na Aula 9 ─────────────────────────────────
+    // ── Botão PEDIR AGORA ────────────────────────────────────────────────────
     if (clicado.classList.contains("btn-pedido")) {
       event.preventDefault();
 
@@ -151,12 +153,7 @@ function inicializarVitrine() {
       var produtoId = Number(card.getAttribute("data-id"));
       var quantidade = Number(card.querySelector(".qtd-valor").textContent);
 
-      // Desabilita o botão imediatamente — evita clique duplo enquanto aguarda API
-      clicado.disabled = true;
-      clicado.textContent = "Enviando...";
-
-      // ⚠ Aula 9: passa o botão como parâmetro — o feedback fica dentro
-      // de salvarPedido porque agora depende da resposta do servidor
+      // salvarPedido salva no localStorage e exibe o feedback no botão
       salvarPedido(produtoId, quantidade, clicado);
     }
   });
@@ -179,99 +176,70 @@ function atualizarPrecoCard(box) {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // salvarPedido(produtoId, quantidade, botao)
-// Aula 8: guardava no localStorage — função síncrona, sem API.
-// Aula 9: envia para o servidor via criarPedido() do api.js.
+// Aula 8: guardava { nome, preco, qtd, subtotal } no localStorage.
 //
-// Por que a assinatura mudou?
-//   Aula 8 → salvarPedido({ nome, preco, qtd })  — dados do front-end
-//   Aula 9 → salvarPedido(produtoId, quantidade, botao) — só ID + qtd
-//   O servidor calcula o preço total consultando o banco — o front não
-//   manda preço para evitar que alguém manipule o valor antes de enviar.
-//   O botão é passado para o feedback ser controlado aqui, dentro do
-//   try/catch — sucesso e erro têm visuais diferentes.
+// Aula 9: salva também produto_id — necessário para enviar à API.
+//   O envio real acontece em pedidos.html via "Enviar para Cozinha".
+//   Isso separa a montagem do pedido (aqui) do envio ao banco (pedidos.js),
+//   tornando o POST /pedidos um momento explícito e ensinável.
 //
-// cliente vem do sessionStorage (global.js) — nome que o cliente digitou
-//   no popup de boas-vindas. || "Cliente" garante fallback se não tiver.
+//   Diferença do campo: Aula 8 usava qtd, Aula 9 usa quantidade —
+//   para coincidir com o formato que criarPedido() do api.js espera.
 // ─────────────────────────────────────────────────────────────────────────────
-async function salvarPedido(produtoId, quantidade, botao) {
-  // Pega o nome do cliente salvo na sessão (global.js — solicitarNomeCliente)
-  var cliente = sessionStorage.getItem("techfood_cliente") || "Cliente";
+function salvarPedido(produtoId, quantidade, botao) {
+  var card    = botao.parentElement;
+  var nome    = card.querySelector("h3").textContent;
+  var preco   = parseFloat(card.querySelector(".preco").getAttribute("data-preco"));
+  var subtotal = preco * quantidade;
 
-  try {
-    // criarPedido() no api.js — POST /pedidos
-    // o back-end exige produto_id e quantidade — não o nome nem o preço
-    await criarPedido(cliente, [
-      { produto_id: produtoId, quantidade: quantidade },
-    ]);
+  // Padrão Aula 8: ler → modificar → salvar
+  var lista = JSON.parse(localStorage.getItem("techfood_pedidos") || "[]");
+  lista.push({
+    produto_id: produtoId,  // ⚠ novo em Aula 9 — usado pelo criarPedido()
+    quantidade: quantidade,  // ⚠ renomeado de qtd para quantidade (formato API)
+    nome:       nome,
+    preco:      preco,
+    subtotal:   subtotal
+  });
+  localStorage.setItem("techfood_pedidos", JSON.stringify(lista));
 
-    // Feedback de sucesso
-    botao.textContent = "✓ Pedido enviado!";
-    botao.style.backgroundColor = "#27ae60";
+  // Feedback visual — igual Aula 8
+  botao.textContent          = "✓ Adicionado!";
+  botao.style.backgroundColor = "#27ae60";
 
-    atualizarContadorPedidos();
+  atualizarContadorPedidos();
 
-    setTimeout(function () {
-      botao.textContent = "Pedir Agora";
-      botao.style.backgroundColor = "";
-      botao.disabled = false;
+  setTimeout(function () {
+    botao.textContent          = "Pedir Agora";
+    botao.style.backgroundColor = "";
+    botao.disabled              = false;
 
-      // Reset de quantidade após o feedback
-      var box = botao.parentElement.querySelector(".quantidade-box");
-      if (box) {
-        box.querySelector(".qtd-valor").textContent = "1";
-        atualizarPrecoCard(box);
-      }
-    }, 2000);
-  } catch (erro) {
-    // Feedback de erro — libera o botão para tentar de novo
-    botao.textContent = "Erro! Tente novamente";
-    botao.style.backgroundColor = "#e74c3c";
-    botao.disabled = false;
-
-    setTimeout(function () {
-      botao.textContent = "Pedir Agora";
-      botao.style.backgroundColor = "";
-    }, 2500);
-  }
+    var box = card.querySelector(".quantidade-box");
+    if (box) {
+      box.querySelector(".qtd-valor").textContent = "1";
+      atualizarPrecoCard(box);
+    }
+  }, 1500);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
 // atualizarContadorPedidos()
 // Aula 8: lia o localStorage para contar pedidos.
-// Aula 9: chama buscarPedidos() da API para ter o número real do servidor.
+// Aula 9: mantém localStorage — o carrinho fica aqui até o "Enviar para Cozinha".
 // ─────────────────────────────────────────────────────────────────────────────
-async function atualizarContadorPedidos() {
-  try {
-    var resposta = await buscarPedidos(); // api.js — GET /pedidos
-    var pedidos = resposta.dados || resposta;
-    var total = pedidos.reduce(function (acc, p) {
-      // soma as quantidades de todos os itens de todos os pedidos
-      if (p.itens)
-        return (
-          acc +
-          p.itens.reduce(function (a, i) {
-            return a + i.quantidade;
-          }, 0)
-        );
-      return acc + 1;
-    }, 0);
+function atualizarContadorPedidos() {
+  var lista = JSON.parse(localStorage.getItem("techfood_pedidos") || "[]");
+  var total = lista.reduce(function (acc, p) { return acc + p.quantidade; }, 0);
 
-    var linkMenu = document.querySelector("#menu a[href='pedidos.html']");
-    if (!linkMenu) return;
+  var linkMenu = document.querySelector("#menu a[href='pedidos.html']");
+  if (!linkMenu) return;
 
-    var badge = linkMenu.querySelector(".badge-menu");
-    if (!badge) {
-      linkMenu.insertAdjacentHTML(
-        "beforeend",
-        "<span class='badge-menu'>0</span>",
-      );
-      badge = linkMenu.querySelector(".badge-menu");
-    }
-
-    badge.textContent = total;
-    linkMenu.classList.add("menu-ativo");
-  } catch (erro) {
-    // Silencia o erro de contador — não interrompe o fluxo do usuário
-    console.warn("Não foi possível atualizar o contador de pedidos.");
+  var badge = linkMenu.querySelector(".badge-menu");
+  if (!badge) {
+    linkMenu.insertAdjacentHTML("beforeend", "<span class='badge-menu'>0</span>");
+    badge = linkMenu.querySelector(".badge-menu");
   }
+
+  badge.textContent = total;
+  linkMenu.classList.add("menu-ativo");
 }
