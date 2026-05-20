@@ -1,0 +1,292 @@
+/* ==========================================================
+   GLOBAL.CSS — Estilos compartilhados por todas as páginas.
+   Aula 8: criado junto com o global.js — o que é de todas
+   as páginas não pode viver num arquivo que só carrega em uma.
+
+   Carregado ANTES de qualquer CSS de página em todos os HTMLs.
+   ========================================================== */
+
+/* ── RESET ──────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* ── VARIÁVEIS DE COR ───────────────────────────────────── */
+:root {
+  --cor-primaria: #2c3e50;
+  --cor-destaque: #e67e22;
+  --cor-amarelo: #f1c40f;
+  --cor-verde: #27ae60;
+  --cor-vermelho: #e74c3c;
+}
+
+/* ── HEADER ─────────────────────────────────────────────── */
+#topo-loja {
+  background-color: var(--cor-primaria);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+#titulo-site {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+#boas-vindas {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-bottom: 10px;
+}
+
+/* ── MENU HAMBÚRGUER ────────────────────────────────────── */
+#bt_menu,
+#label-menu {
+  display: none;
+}
+
+#menu ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+#menu li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+@media screen and (max-width: 600px) {
+  #menu li {
+    display: block;
+    margin: 8px 0;
+  }
+}
+
+#menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  opacity: 0.8;
+  transition: opacity 0.15s;
+}
+
+#menu a:hover,
+#menu a.ativo {
+  color: var(--cor-amarelo);
+  opacity: 1;
+}
+
+/* ── Badge contador no link do menu — Aula 8 ────────────────
+   Criado por atualizarContadorPedidos() no main.js
+   quando o primeiro pedido é salvo.
+   ─────────────────────────────────────────────────────────── */
+.badge-menu {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cor-destaque);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+a.menu-ativo {
+  color: var(--cor-amarelo) !important;
+  opacity: 1 !important;
+}
+
+/* ── TÍTULO DAS SEÇÕES ──────────────────────────────────── */
+.titulo-secao {
+  text-align: center;
+  margin: 40px 0 20px;
+  color: var(--cor-primaria);
+  font-size: 1.3rem;
+}
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+#rodape {
+  background: var(--cor-primaria);
+  color: #fff;
+  padding: 30px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.info-footer p {
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+#data-hora-footer {
+  font-size: 0.8rem;
+  opacity: 0.55;
+  margin-top: 10px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MODAIS — padrão compartilhado entre todas as páginas
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Overlay dos modais ──────────────────────────────────────
+   Cobre toda a tela com fundo escuro semitransparente.
+   display é controlado via JS (style.display = "flex" / "none").
+   Aula 9: usado por #modal-boas-vindas (index.html) e
+           #modal-fechar-conta (pedidos.html).
+   ─────────────────────────────────────────────────────────── */
+#modal-boas-vindas,
+#modal-fechar-conta {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Cartão central do modal ─────────────────────────────────
+   Fundo branco, borda arredondada, sombra suave.
+   Centralizado pelo flex do overlay.
+   ─────────────────────────────────────────────────────────── */
+.modal-bv-conteudo {
+  background: #fff;
+  border-radius: 14px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  animation: modalEntrar 0.2s ease;
+}
+
+@keyframes modalEntrar {
+  from { opacity: 0; transform: scale(0.95) translateY(-10px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);     }
+}
+
+.modal-bv-conteudo h2 {
+  color: var(--cor-primaria);
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.modal-bv-conteudo p {
+  color: #888;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.modal-bv-conteudo input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  outline: none;
+  text-align: center;
+  transition: border-color 0.15s;
+}
+
+.modal-bv-conteudo input:focus {
+  border-color: var(--cor-destaque);
+}
+
+/* Botão único (modal de boas-vindas) */
+.modal-bv-conteudo > button {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--cor-destaque);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.modal-bv-conteudo > button:hover {
+  background: #d35400;
+}
+
+/* ── Grupo de dois botões (modal de confirmação) ─────────────
+   Quando o modal tem Cancelar + Confirmar lado a lado.
+   Sobrescreve os estilos de botão único acima.
+   ─────────────────────────────────────────────────────────── */
+.modal-btn-grupo {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-btn-grupo button {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.15s;
+  width: auto; /* sobrescreve o width:100% do botão único */
+}
+
+/* Botão secundário — Cancelar */
+.modal-btn-secundario {
+  background: none;
+  border: 2px solid #ddd;
+  color: #888;
+}
+
+.modal-btn-secundario:hover {
+  border-color: #bbb;
+  background: #f5f5f5;
+  color: #555;
+}
+
+/* Botão de ação destrutiva — Confirmar encerramento */
+.modal-btn-perigo {
+  background: #c0392b;
+  color: #fff;
+  border: none;
+}
+
+.modal-btn-perigo:hover {
+  background: #a93226;
+}
+
+/* ── RESPONSIVO ─────────────────────────────────────────── */
+@media screen and (max-width: 600px) {
+  #label-menu {
+    display: block;
+    font-size: 2rem;
+    color: var(--cor-amarelo);
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  #menu ul {
+    display: none;
+  }
+
+  #bt_menu:checked ~ #menu ul {
+    display: block;
+    padding: 10px 0;
+  }
+
+  #menu li {
+    display: block;
+    margin: 8px 0;
+  }
+}

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles/global.css" />
+    <link rel="stylesheet" href="src/styles/pedidos.css" />
+    <title>TechFood - Painel da Cozinha</title>
+  </head>
+  <body>
+
+    <!--
+      MODAL DE CONFIRMAÇÃO — Fechar Conta da Mesa          Aula 9
+      Substitui o confirm() nativo do navegador — feio e sem estilo.
+      Segue o mesmo padrão visual do #modal-boas-vindas (index.html):
+        overlay escuro + cartão branco centralizado.
+      display:none — pedidos.js exibe via configurarFecharConta()
+      quando o cliente clica em "✔ Fechar Conta da Mesa".
+      CSS em global.css (reutilizável em outras páginas futuras).
+    -->
+    <div id="modal-fechar-conta" style="display: none;">
+      <div class="modal-bv-conteudo">
+        <h2>&#129518; Fechar Conta da Mesa?</h2>
+        <p>
+          O pagamento deve ser feito no caixa.<br />
+          Esta a&#231;&#227;o zera o total e libera a mesa<br />
+          para o pr&#243;ximo cliente.
+        </p>
+        <div class="modal-btn-grupo">
+          <button id="btn-cancelar-fechar" class="modal-btn-secundario">
+            Cancelar
+          </button>
+          <button id="btn-confirmar-fechar" class="modal-btn-perigo">
+            &#10003; Confirmar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <header id="topo-loja">
+      <h1 id="titulo-site">TechFood - Sabor & Saber</h1>
+      <p id="boas-vindas">Carregando...</p>
+
+      <input type="checkbox" id="bt_menu" />
+      <label for="bt_menu" id="label-menu" aria-label="Abrir menu"
+        >&#9776;</label
+      >
+
+      <nav id="menu" role="navigation" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Cardápio</a></li>
+          <li><a href="pedidos.html" class="ativo">Meus Pedidos</a></li>
+          <li><a href="cadastro.html">Cadastrar Prato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="secao-pedidos">
+        <h2 class="titulo-secao">&#128722; Meus Pedidos</h2>
+
+        <!-- Resumo do carrinho atual — preenchido por renderizarPedidos() -->
+        <div id="resumo-pedidos">
+          <span id="contador-itens">0 itens</span>
+          <span id="valor-total-resumo">R$ 0,00</span>
+        </div>
+
+        <!--
+          Lista de pedidos — começa com uma mensagem padrão.
+          O pedidos.js substitui o conteúdo ao carregar a página.
+          Aula 9: botão "Enviar para Cozinha" abaixo envia os itens à API.
+        -->
+        <ol id="lista-pedidos" aria-label="Lista de pedidos realizados">
+          <li class="pedido-vazio">
+            Nenhum pedido ainda. Acesse o
+            <a href="index.html">Card&#225;pio</a>
+            para adicionar! &#128522;
+          </li>
+        </ol>
+
+        <div id="total-pedidos">
+          <strong>Total Geral: <span id="valor-total">R$ 0,00</span></strong>
+          <div class="btn-pedidos-grupo">
+            <button id="btn-limpar-pedidos" class="btn-limpar-pedidos">
+              &#128465; Limpar Pedidos
+            </button>
+            <!--
+              Aula 9: exibe tudo que foi enviado à cozinha nesta sessão.
+              Mostra o histórico acumulado — o somatório é o Total Geral da mesa.
+            -->
+            <button id="btn-ver-conta" class="btn-voltar-cardapio">
+              &#128203; Ver Conta da Mesa
+            </button>
+            <!--
+              Aula 9: botão que envia o carrinho do localStorage ao banco de dados.
+              Chama configurarEnviarCozinha() em pedidos.js via POST /pedidos.
+            -->
+            <button id="btn-enviar-cozinha" class="btn-enviar-cozinha">
+              &#127859; Enviar para Cozinha
+            </button>
+          </div>
+        </div>
+
+        <!--
+          Painel da conta da mesa — oculto por padrão.
+          Exibe todos os itens já enviados à cozinha nesta sessão.
+          Aberto/fechado pelo botão "Ver Conta da Mesa" (pedidos.js).
+        -->
+        <div id="painel-conta" style="display:none;">
+          <h3 class="titulo-secao" style="margin-top:32px;">&#129518; Conta da Mesa</h3>
+          <ol id="lista-conta" aria-label="Itens enviados à cozinha"></ol>
+          <div class="btn-pedidos-grupo" style="justify-content:flex-end; margin-bottom:16px;">
+            <!--
+              Fechar Conta = encerrar sessão da mesa.
+              Zera total, historico e nome do cliente — volta ao modal de boas-vindas.
+              Pagamento é feito no caixa fora do sistema.
+            -->
+            <button id="btn-fechar-conta" class="btn-enviar-cozinha" style="background:#c0392b;">
+              &#10003; Fechar Conta da Mesa
+            </button>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <footer id="rodape">
+      <div class="info-footer">
+        <p><strong>TechFood 2026</strong></p>
+        <p>Escola SENAI Ítalo Bologna - Itu/SP</p>
+        <p>Av. das Nações, 1500</p>
+      </div>
+      <p id="data-hora-footer"></p>
+    </footer>
+
+    <!--
+      api.js antes do pedidos.js — pedidos.js chama
+      buscarPedidos() e atualizarStatusPedido() do api.js.
+    -->
+    <script src="src/scripts/global.js"></script>
+    <script src="src/scripts/api.js"></script>
+    <script src="src/scripts/pedidos.js"></script>
+  </body>
+</html>

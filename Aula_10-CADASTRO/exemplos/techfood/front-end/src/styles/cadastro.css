@@ -1,0 +1,297 @@
+/* ==========================================================
+   CADASTRO.CSS — Estilos da página de Cadastro (cadastro.html)
+   Aula 10: criado junto com o cadastro.js.
+   ========================================================== */
+
+/* ── Seção principal ──────────────────────────────────────── */
+#secao-cadastro,
+#secao-tabela {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 20px 40px;
+}
+
+/* ── Formulário ───────────────────────────────────────────── */
+#form-cadastro {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-bottom: 16px;
+}
+
+.campo-grupo {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo-grupo label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #2c3e50;
+}
+
+.obrigatorio {
+  color: #e74c3c;
+}
+
+.campo-grupo input,
+.campo-grupo textarea,
+.campo-grupo select {
+  padding: 0.65rem 0.9rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s;
+  background: #fafafa;
+}
+
+.campo-grupo input:focus,
+.campo-grupo textarea:focus,
+.campo-grupo select:focus {
+  border-color: #e67e22;
+  background: #fff;
+}
+
+.campo-grupo textarea {
+  resize: vertical;
+}
+
+/* ── Validação ────────────────────────────────────────────── */
+.msg-erro {
+  font-size: 0.8rem;
+  color: #e74c3c;
+  min-height: 1em;
+}
+
+/* ── Radio buttons de disponibilidade ────────────────────── */
+.campo-radio {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.campo-radio legend {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  padding: 0 6px;
+}
+
+.campo-radio label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #444;
+  cursor: pointer;
+  font-weight: normal !important;
+}
+
+.campo-radio input[type="radio"] {
+  accent-color: #e67e22;
+  width: 16px;
+  height: 16px;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* ── Área de feedback ─────────────────────────────────────── */
+#feedback-formulario {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.feedback-sucesso {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.feedback-erro {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.feedback-info {
+  background: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+/* ── Botões do formulário ─────────────────────────────────── */
+.form-acoes {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-salvar {
+  flex: 2;
+  padding: 0.8rem;
+  background: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-salvar:hover  { background: #219150; }
+.btn-salvar:disabled { background: #95a5a6; cursor: not-allowed; }
+
+.btn-limpar-form {
+  flex: 1;
+  padding: 0.8rem;
+  background: none;
+  border: 2px solid #bbb;
+  color: #888;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-limpar-form:hover {
+  border-color: #888;
+  color: #555;
+  background: #f5f5f5;
+}
+
+/* ── Tabela de pratos ─────────────────────────────────────── */
+.tabela-info {
+  font-size: 0.8rem;
+  color: #aaa;
+  text-align: right;
+  margin-bottom: 8px;
+}
+
+.tabela-wrapper {
+  overflow-x: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+}
+
+#tabela-cardapio {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+#tabela-cardapio thead tr {
+  background: #2c3e50;
+  color: #fff;
+}
+
+#tabela-cardapio th {
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
+}
+
+#tabela-cardapio td {
+  padding: 11px 14px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #333;
+}
+
+#tabela-cardapio tbody tr:last-child td {
+  border-bottom: none;
+}
+
+#tabela-cardapio tbody tr:hover {
+  background: #fafafa;
+}
+
+.preco-tabela {
+  color: #e67e22;
+  font-weight: bold;
+}
+
+.status-disponivel  { color: #27ae60; font-weight: bold; }
+.status-indisponivel { color: #e74c3c; font-weight: bold; }
+
+.tabela-carregando,
+.tabela-vazia {
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
+  padding: 24px;
+}
+
+.tabela-erro {
+  text-align: center;
+  color: #e74c3c;
+  padding: 24px;
+}
+
+/* ── Botões de ação na tabela ─────────────────────────────── */
+.acoes-tabela {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-editar,
+.btn-excluir {
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.btn-editar {
+  background: none;
+  border: 1px solid #2c3e50;
+  color: #2c3e50;
+}
+
+.btn-editar:hover {
+  background: #2c3e50;
+  color: #fff;
+}
+
+.btn-excluir {
+  background: none;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+}
+
+.btn-excluir:hover {
+  background: #e74c3c;
+  color: #fff;
+}
+
+/* ── Responsivo ───────────────────────────────────────────── */
+@media (max-width: 600px) {
+  #form-cadastro {
+    padding: 20px 16px;
+  }
+
+  .campo-radio {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .form-acoes {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles/style.css" />
+    <title>EcoCycle - Sustentabilidade e Interatividade</title>
+  </head>
+  <body>
+    <!-- =====================================================
+         MODAL DE BOAS-VINDAS — Exercício 5 (sessionStorage)
+         Aparece na primeira vez que o usuário acessa.
+         O eco.js verifica sessionStorage e exibe se necessário.
+    ===================================================== -->
+    <div id="modal-eco" style="display: none">
+      <div class="modal-eco-conteudo">
+        <h2>🌿 Bem-vindo ao EcoCycle!</h2>
+        <p>Como podemos te chamar?</p>
+        <input
+          type="text"
+          id="input-nome-eco"
+          placeholder="Seu nome..."
+          maxlength="30"
+        />
+        <button id="btn-confirmar-eco">Entrar</button>
+      </div>
+    </div>
+
+    <header id="cabecalho-eco">
+      <h1 id="titulo-portal">EcoCycle</h1>
+      <p id="boas-vindas-eco">Carregando...</p>
+
+      <input type="checkbox" id="check-menu" />
+      <label for="check-menu" id="icone-btn">&#9776;</label>
+
+      <nav id="nav-eco">
+        <ul>
+          <li><a href="#" class="link-nav">Home</a></li>
+          <li><a href="#" class="link-nav">Dicas</a></li>
+          <li><a href="#" class="link-nav">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- =====================================================
+             LISTA DE NOTÍCIAS
+             Exercícios 1, 2 e 3 trabalham com esta seção.
+             Exercício 2: cards criados dinamicamente via fetch.
+        ===================================================== -->
+      <section class="lista-noticias" id="lista-noticias">
+        <article class="card-noticia card-original">
+          <img src="src/images/reciclagem.jpg" alt="Família a reciclar" />
+          <h2>Guia de Reciclagem</h2>
+          <p class="desc">Reduza o lixo na sua casa hoje mesmo.</p>
+          <button class="btn-leitura">Leia Mais</button>
+        </article>
+
+        <article class="card-noticia card-original">
+          <div class="video-container">
+            <img
+              src="src/images/energia.jpg"
+              alt="Thumbnail Energia"
+              id="thumb-video"
+            />
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="YouTube video player"
+              frameborder="0"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+          <h2>Energia Solar</h2>
+          <p class="desc">O futuro da energia limpa no dia a dia.</p>
+          <button class="btn-leitura" id="btn-video">Assistir Vídeo</button>
+        </article>
+
+        <article class="card-noticia card-original">
+          <img src="src/images/horta.jpg" alt="Horta Urbana" />
+          <h2>Hortas Urbanas</h2>
+          <p class="desc">Plante sua própria comida em apartamentos.</p>
+          <button class="btn-leitura">Ver Dicas</button>
+        </article>
+      </section>
+
+      <!-- Exercício 3: formulário de sugestão com POST -->
+      <section id="secao-sugestao">
+        <h2>Sugerir Notícia</h2>
+        <form id="form-sugestao">
+          <div class="campo-grupo">
+            <label for="input-titulo">Título:</label>
+            <input
+              type="text"
+              id="input-titulo"
+              placeholder="Título da notícia"
+            />
+          </div>
+          <div class="campo-grupo">
+            <label for="input-desc">Descrição:</label>
+            <textarea
+              id="input-desc"
+              placeholder="Descreva brevemente..."
+            ></textarea>
+          </div>
+          <button type="submit" id="btn-sugerir">Enviar Sugestão</button>
+        </form>
+      </section>
+
+      <section id="sessao-simulador">
+        <h2>Simulador Eco-Economia</h2>
+        <div class="campo-grupo">
+          <label for="input-papel">Se você reciclar (kg) de papel:</label>
+          <input type="number" id="input-papel" value="0" min="0" />
+        </div>
+        <p id="txt-resultado">
+          Você poupará: <strong>0</strong> litros de água!
+        </p>
+      </section>
+    </main>
+
+    <script src="src/scripts/eco.js"></script>
+  </body>
+</html>
