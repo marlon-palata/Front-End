@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mysql *)",
+      "PowerShell(cmd /c \"mysql -u root -proot < \"\"C:\\\\Users\\\\marli\\\\Documents\\\\github\\\\Front-End\\\\Aula_9-FETCH_API\\\\exemplos\\\\techfood\\\\back-end\\\\database.sql\"\"\")",
+      "PowerShell(Start-Sleep -Seconds 2; Invoke-RestMethod -Uri \"http://localhost:3000/produtos\" | ConvertTo-Json)",
+      "Bash(node -e \"const http = require\\('http'\\); const req = http.get\\('http://localhost:3000/produtos', \\(res\\) => { console.log\\('Status:', res.statusCode\\); }\\); req.on\\('error', \\(e\\) => { console.log\\('Erro:', e.message\\); }\\); req.end\\(\\);\")",
+      "Bash(node src/server.js)",
+      "Bash(dir -Recurse -Name)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git checkout *)",
+      "Bash(Copy-Item -Path \"Aula_9-FETCH_API\" -Destination \"Aula_10-CADASTRO\" -Recurse)",
+      "Bash(Remove-Item -Path \"Aula_10-CADASTRO\\\\exemplos\\\\techfood\\\\back-end\\\\node_modules\" -Recurse -Force -ErrorAction SilentlyContinue)",
+      "Bash(Write-Host \"Copiado.\")"
+    ]
+  }
+}

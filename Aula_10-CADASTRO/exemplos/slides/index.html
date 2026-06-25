@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Aula 9 — Fetch API: Exemplos</title>
+  <title>Aulas 9 e 10 — Fetch + Cadastro com Upload: Exemplos</title>
 </head>
 <body>
 
   <header>
-    <h1>Aula 9 — Fetch API</h1>
+    <h1>Aulas 9 e 10 — Fetch API + Cadastro com Upload</h1>
     <p>Clique nos botões para ver cada conceito em ação</p>
     <p class="aviso">⚠ Servidor precisa estar rodando em localhost:3000</p>
   </header>
@@ -57,6 +57,38 @@
         <button onclick="demoSessionSet()">setItem — salvar nome</button>
         <button onclick="demoSessionGet()">getItem — ler nome</button>
         <button onclick="demoSessionClear()">removeItem — limpar</button>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════════
+           CONTEÚDO NOVO — AULA 10 — Cadastro com upload de imagem
+           Tudo abaixo entra apenas a partir da Aula 10.
+           ═══════════════════════════════════════════════════════════ -->
+
+      <div class="grupo">
+        <h3>Aula 10 — FormData básico</h3>
+        <button onclick="demoFormDataMontar()">Montar FormData (só texto)</button>
+        <button onclick="demoFormDataInspecionar()">Inspecionar FormData (.entries)</button>
+      </div>
+
+      <div class="grupo">
+        <h3>Aula 10 — Upload de arquivo</h3>
+        <input type="file" id="input-arquivo-demo" accept="image/*">
+        <button onclick="demoFormDataArquivo()">FormData com arquivo</button>
+        <button onclick="demoFileReaderBase64()">FileReader → Base64</button>
+      </div>
+
+      <div class="grupo">
+        <h3>Aula 10 — JSON vs FormData</h3>
+        <button onclick="demoComparacaoBody()">Comparar body: JSON × FormData</button>
+        <button onclick="demoContentTypeErrado()">⚠ O erro do Content-Type forçado</button>
+      </div>
+
+      <div class="grupo">
+        <h3>Aula 10 — As 4 estratégias</h3>
+        <button onclick="demoEstrategia1()">1. FormData + multer</button>
+        <button onclick="demoEstrategia2()">2. Base64 em JSON</button>
+        <button onclick="demoEstrategia3()">3. URL externa</button>
+        <button onclick="demoEstrategia4()">4. Dois requests</button>
       </div>
 
       <div class="grupo reset">

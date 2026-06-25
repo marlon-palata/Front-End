@@ -8,12 +8,11 @@
                  exibirNomeCliente(): saudação personalizada com nome do cliente.
                  Conceito de sessão: sessionStorage some ao fechar a aba —
                  cada cliente (mesa) começa do zero.
-   [✔] Aula 10 — Sem alterações funcionais. ROADMAP atualizado.
-                 O modal de nome continua aparecendo em cadastro.html —
-                 em produção, considerar autenticação para proteger essa rota.
+   [ ] Aula 10 — atualizarContadorCadastro(): badge no link "Cadastrar Prato"
+                 mostrando quantos pratos estão salvos no banco.
+                 Requer que cadastro.js notifique global.js após salvar.
    [ ] Futuro  — Modo admin: ocultar/exibir "Cadastrar Prato" no menu
                  dependendo de autenticação (localStorage["techfood_admin"]).
-                 atualizarContadorCadastro(): badge no link "Cadastrar Prato".
 
    Carregado ANTES de qualquer script de página em todos os HTMLs.
    ========================================================== */

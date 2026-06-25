@@ -8,32 +8,21 @@
     <title>TechFood - Cadastrar Prato</title>
   </head>
   <body>
+    <!-- =====================================================
+         CADASTRO DE PRATO — Aula 10
+         Página nova. O menu (index.html e pedidos.html) já
+         apontava para cá desde a Aula 9 — agora o arquivo existe.
 
-    <!--
-      MODAL DE CONFIRMAÇÃO — Excluir Prato             Aula 10
-      Mesmo padrão do #modal-fechar-conta (pedidos.html).
-      display:none — cadastro.js exibe via excluirPrato().
-      CSS em global.css (classes .modal-btn-grupo, .modal-btn-perigo).
-    -->
-    <div id="modal-excluir" style="display: none;">
-      <div class="modal-bv-conteudo">
-        <h2>&#128465; Excluir Prato?</h2>
-        <p id="modal-excluir-msg">
-          Tem certeza? Esta a&#231;&#227;o n&#227;o pode ser desfeita.
-        </p>
-        <div class="modal-btn-grupo">
-          <button id="btn-cancelar-excluir" class="modal-btn-secundario">
-            Cancelar
-          </button>
-          <button id="btn-confirmar-excluir" class="modal-btn-perigo">
-            &#10005; Confirmar
-          </button>
-        </div>
-      </div>
-    </div>
+         O formulário envia para POST /produtos (api.js →
+         cadastrarProduto). Como há upload de imagem, o cadastro.js
+         monta um FormData (texto + arquivo no mesmo envio).
+
+         A TÉCNICA de receber e salvar a imagem é do BACK-END.
+         O front só fornece o campo de upload e o botão de enviar.
+    ===================================================== -->
 
     <header id="topo-loja">
-      <h1 id="titulo-site">TechFood - Sabor &amp; Saber</h1>
+      <h1 id="titulo-site">TechFood - Sabor & Saber</h1>
       <p id="boas-vindas">Carregando...</p>
 
       <input type="checkbox" id="bt_menu" />
@@ -41,7 +30,7 @@
 
       <nav id="menu" role="navigation" aria-label="Menu principal">
         <ul>
-          <li><a href="index.html">Card&#225;pio</a></li>
+          <li><a href="index.html">Cardápio</a></li>
           <li><a href="pedidos.html">Meus Pedidos</a></li>
           <li><a href="cadastro.html" class="ativo">Cadastrar Prato</a></li>
         </ul>
@@ -52,159 +41,107 @@
       <section id="secao-cadastro">
         <h2 class="titulo-secao">&#127859; Cadastrar Novo Prato</h2>
 
-        <!--
-          FORMULÁRIO DE CADASTRO
-          Campos: nome, descricao, preco, categoria, disponivel.
-          data-editando: vazio = novo cadastro | id = edição (Bloco 2).
-          Controlado por configurarFormulario() em cadastro.js.
-        -->
-        <form id="form-cadastro" novalidate>
-
-          <div class="campo-grupo">
-            <label for="nome-prato">Nome do Prato <span class="obrigatorio">*</span></label>
+        <!-- =====================================================
+             FORMULÁRIO DE CADASTRO
+             Cada campo tem um id que o cadastro.js vai ler.
+             enctype="multipart/form-data" — necessário em formulários
+             com upload de arquivo (mesmo que o envio real seja via JS).
+        ===================================================== -->
+        <form id="form-cadastro" class="form-cadastro" enctype="multipart/form-data">
+          <!-- Nome do prato -->
+          <div class="campo">
+            <label for="nome">Nome do prato *</label>
             <input
               type="text"
-              id="nome-prato"
-              placeholder="Ex: Lasanha Bolonhesa"
+              id="nome"
+              name="nome"
+              placeholder="Ex: Lasanha à Bolonhesa"
               maxlength="60"
-              aria-required="true"
-              aria-describedby="erro-nome"
+              required
             />
-            <span class="msg-erro" id="erro-nome" role="alert"></span>
           </div>
 
-          <div class="campo-grupo">
-            <label for="desc-prato">Descri&#231;&#227;o <span class="obrigatorio">*</span></label>
+          <!-- Descrição -->
+          <div class="campo">
+            <label for="descricao">Descrição *</label>
             <textarea
-              id="desc-prato"
-              placeholder="Descreva o prato em até 150 caracteres..."
-              maxlength="150"
+              id="descricao"
+              name="descricao"
+              placeholder="Ex: Massa fresca com molho de tomate e carne moída"
+              maxlength="200"
               rows="3"
-              aria-required="true"
-              aria-describedby="erro-desc"
+              required
             ></textarea>
-            <span class="msg-erro" id="erro-desc" role="alert"></span>
           </div>
 
-          <div class="campo-grupo">
-            <label for="preco-prato">Pre&#231;o (R$) <span class="obrigatorio">*</span></label>
+          <!-- Preço -->
+          <div class="campo">
+            <label for="preco">Preço (R$) *</label>
             <input
               type="number"
-              id="preco-prato"
-              placeholder="0,00"
-              min="0.01"
+              id="preco"
+              name="preco"
+              placeholder="Ex: 42.00"
               step="0.01"
-              aria-required="true"
-              aria-describedby="erro-preco"
+              min="0"
+              required
             />
-            <span class="msg-erro" id="erro-preco" role="alert"></span>
           </div>
 
-          <div class="campo-grupo">
-            <label for="categoria-prato">Categoria <span class="obrigatorio">*</span></label>
-            <select id="categoria-prato" aria-required="true" aria-describedby="erro-categoria">
-              <option value="">-- Selecione --</option>
-              <option value="Massas">Massas</option>
-              <option value="Entradas">Entradas</option>
-              <option value="Bebidas">Bebidas</option>
-              <option value="Sobremesas">Sobremesas</option>
+          <!-- Categoria -->
+          <div class="campo">
+            <label for="categoria">Categoria *</label>
+            <select id="categoria" name="categoria" required>
+              <option value="">Selecione...</option>
+              <option value="entrada">Entrada</option>
+              <option value="massa">Massa</option>
+              <option value="prato-principal">Prato Principal</option>
+              <option value="sobremesa">Sobremesa</option>
+              <option value="bebida">Bebida</option>
             </select>
-            <span class="msg-erro" id="erro-categoria" role="alert"></span>
           </div>
 
-          <div class="campo-grupo">
-            <fieldset class="campo-radio">
-              <legend>Disponibilidade</legend>
-              <label>
-                <input type="radio" name="disponivel" value="true" checked />
-                Dispon&#237;vel
-              </label>
-              <label>
-                <input type="radio" name="disponivel" value="false" />
-                Indispon&#237;vel
-              </label>
-            </fieldset>
+          <!-- Upload de imagem — o FRONT só fornece o botão.
+               O back-end de cada aluno decide como receber e salvar. -->
+          <div class="campo">
+            <label for="imagem">Foto do prato</label>
+            <input
+              type="file"
+              id="imagem"
+              name="imagem"
+              accept="image/*"
+            />
+            <small class="dica-campo">Formatos: JPG, PNG. Opcional.</small>
           </div>
 
-          <!--
-            Área de feedback — exibe sucesso (verde) ou erro (vermelho).
-            Controlada por exibirFeedback() em cadastro.js.
-          -->
-          <div id="feedback-formulario" style="display:none;" role="status" aria-live="polite"></div>
+          <!-- Botão enviar -->
+          <button type="submit" id="btn-cadastrar" class="btn-cadastrar">
+            Cadastrar Prato
+          </button>
 
-          <div class="form-acoes">
-            <button type="submit" class="btn-salvar">&#10004; Salvar Prato</button>
-            <button type="reset" class="btn-limpar-form" onclick="limparFormularioEdicao()">
-              &#10006; Limpar
-            </button>
-          </div>
-
+          <!-- Área de feedback (sucesso ou erro) — cadastro.js preenche -->
+          <p id="feedback-cadastro" class="feedback-cadastro"></p>
         </form>
-      </section>
-
-      <!-- ──────────────────────────────────────────────────────────────
-           TABELA DE PRATOS CADASTRADOS
-           Preenchida por preencherTabela() em cadastro.js via GET /produtos.
-           Atualizada após cada cadastro, edição ou exclusão.
-      ─────────────────────────────────────────────────────────────── -->
-      <section id="secao-tabela">
-        <h2 class="titulo-secao">&#128203; Pratos no Card&#225;pio</h2>
-        <p class="tabela-info">
-          Atualizado em: <span id="data-tabela">—</span>
-        </p>
-
-        <div class="tabela-wrapper">
-          <table id="tabela-cardapio" aria-label="Lista de pratos cadastrados">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Prato</th>
-                <th>Categoria</th>
-                <th>Pre&#231;o</th>
-                <th>Dispon&#237;vel</th>
-                <th>A&#231;&#245;es</th>
-              </tr>
-            </thead>
-            <tbody id="corpo-tabela">
-              <tr>
-                <td colspan="6" class="tabela-carregando">Carregando...</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </section>
     </main>
 
     <footer id="rodape">
       <div class="info-footer">
         <p><strong>TechFood 2026</strong></p>
-        <p>Escola SENAI It&#225;lo Bologna - Itu/SP</p>
-        <p>Av. das Na&#231;&#245;es, 1500</p>
+        <p>Escola SENAI Ítalo Bologna - Itu/SP</p>
+        <p>Av. das Nações, 1500</p>
       </div>
       <p id="data-hora-footer"></p>
     </footer>
 
     <!--
       Ordem dos scripts — importante:
-      1. global.js  → funções compartilhadas (saudação, modal)
-      2. api.js     → funções de fetch (cadastro.js depende delas)
-      3. cadastro.js → lógica da página
+      1. global.js  → funções compartilhadas (saudação, modal, data)
+      2. api.js     → funções de fetch (cadastro.js depende de cadastrarProduto)
+      3. cadastro.js → lógica do formulário de cadastro
     -->
     <script src="src/scripts/global.js"></script>
     <script src="src/scripts/api.js"></script>
     <script src="src/scripts/cadastro.js"></script>
   </body>
 </html>
-
-<script>
-// Reseta o formulário para modo "novo cadastro" ao clicar em Limpar
-function limparFormularioEdicao() {
-  const form = document.querySelector("#form-cadastro");
-  if (form) {
-    form.removeAttribute("data-editando");
-    form.querySelector("button[type='submit']").textContent = "✔ Salvar Prato";
-  }
-  const feedback = document.querySelector("#feedback-formulario");
-  if (feedback) feedback.style.display = "none";
-}
-</script>

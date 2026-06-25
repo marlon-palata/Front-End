@@ -12,7 +12,6 @@
                    avança o status do pedido (pendente → preparo → pronto → entregue).
                  configurarVerConta() + renderizarContaMesa(): painel da conta da mesa,
                    mostra histórico de tudo que foi enviado à cozinha na sessão.
-   [✔] Aula 10 — Sem alterações funcionais. ROADMAP atualizado.
    [ ] Futuro  — renderizarFilaCozinha(): painel da cozinha em tempo real.
                    GET /pedidos com polling ou WebSocket — exibe todos os pedidos
                    com controle de status para a equipe da cozinha.

@@ -40,7 +40,7 @@
 
       <nav id="menu">
         <ul>
-          <li><a href="#container-cardapio">Card&#225;pio</a></li>
+          <li><a href="#grid-cardapio">Cardápio</a></li>
           <li><a href="pedidos.html">Meus Pedidos</a></li>
           <li><a href="cadastro.html">Cadastrar Prato</a></li>
         </ul>
@@ -49,16 +49,18 @@
 
     <main>
       <!-- =====================================================
-           CONTAINER DO CARDÁPIO — Aula 10
-           Aula 9: um único grid (#grid-cardapio) com todos os pratos.
-           Aula 10: renderizarCardapioPorCategoria() em main.js cria
-           uma <section> por categoria (Massas, Entradas, Bebidas,
-           Sobremesas) e as injeta aqui dinamicamente.
-           Pratos cadastrados em cadastro.html aparecem aqui.
+           GRID DO CARDÁPIO — Aula 9
+           Aula 8: cards fixos no HTML.
+           Aula 9: grid vazio — renderizarCardapio() no main.js
+           busca os pratos via GET /produtos e cria os cards
+           dinamicamente com createElement (Aula 7).
       ===================================================== -->
-      <div id="container-cardapio">
-        <!-- Preenchido por renderizarCardapioPorCategoria() em main.js -->
-      </div>
+      <section id="secao-cardapio">
+        <h2 class="titulo-secao">Nosso Cardápio</h2>
+        <div class="vitrine-grid" id="grid-cardapio">
+          <!-- Preenchido pelo main.js via API -->
+        </div>
+      </section>
     </main>
 
     <footer id="rodape">
