@@ -1,0 +1,7 @@
+body {
+  margin: 0;
+  font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f3f7f2;
+  color: #1d2b1f;
+  min-height: 100vh;
+}
