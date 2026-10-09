@@ -1,12 +1,11 @@
 import { useState } from "react";
 
-// Aula 4 (E3): a quantidade não passa de 10
 const QUANTIDADE_MAXIMA = 10;
 
 function CardPrato({ nome, preco, categoria, descricao, onAdicionar }) {
   const [quantidade, setQuantidade] = useState(1);
-  const [curtidas, setCurtidas] = useState(0); // Aula 4 (E2)
-  const [mostrarDescricao, setMostrarDescricao] = useState(false); // Aula 4 (E4)
+  const [curtidas, setCurtidas] = useState(0);
+  const [mostrarDescricao, setMostrarDescricao] = useState(false);
 
   const precoFormatado = preco.toLocaleString("pt-BR", {
     style: "currency",
@@ -33,14 +32,9 @@ function CardPrato({ nome, preco, categoria, descricao, onAdicionar }) {
   return (
     <article className="card-prato">
       <span className="categoria">{categoria}</span>
-      {/* Aula 3 (D1): emoji só na sobremesa */}
-      <h2>
-        {categoria === "Sobremesa" ? "🍰 " : ""}
-        {nome}
-      </h2>
+      <h2>{nome}</h2>
       <p className="preco">{precoFormatado}</p>
 
-      {/* Aula 3 (E3) prop descricao + Aula 4 (E4) mostrar/esconder */}
       {mostrarDescricao && <p className="descricao">{descricao}</p>}
       <button
         type="button"

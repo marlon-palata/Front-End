@@ -1,4 +1,3 @@
-// Aula 3 (E2): componente com a tag semântica <footer>
 function Rodape() {
   return (
     <footer className="rodape">

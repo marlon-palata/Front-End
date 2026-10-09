@@ -1,4 +1,4 @@
-function CardPrato({ nome, preco, categoria }) {
+function CardPrato({ nome, preco, categoria, descricao }) {
   const precoFormatado = preco.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
@@ -7,10 +7,12 @@ function CardPrato({ nome, preco, categoria }) {
   return (
     <article className="card-prato">
       <span className="categoria">{categoria}</span>
-      <h2>{nome}</h2>
+      <h2>
+        {categoria === "Sobremesa" ? "🍰 " : ""}
+        {nome}
+      </h2>
       <p className="preco">{precoFormatado}</p>
-      {/* TODO (E3): receba a prop "descricao" (no topo, junto de nome/preco/categoria)
-          e mostre aqui: <p className="descricao">{descricao}</p> */}
+      <p className="descricao">{descricao}</p>
     </article>
   );
 }
